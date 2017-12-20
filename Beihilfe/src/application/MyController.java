@@ -18,7 +18,8 @@ public class MyController {
 	
 	
 	@FXML
-	
+	//Einfaches ActionEvent handling, bei einem Button
+	//Öffnet in diesem Fall eine neue FXML Datei 
 	
 	public void anmelden(ActionEvent anmeldebutton) throws Exception {               
         try {
@@ -33,7 +34,8 @@ public class MyController {
 	}
 	
 	@FXML
-	
+	//Einfaches ActionEvent handling, bei einem Button
+		//Öffnet in diesem Fall eine neue FXML Datei 
 	
 	public void familienmitglieder(ActionEvent familienmitgliederbutton) throws Exception {               
         try {
