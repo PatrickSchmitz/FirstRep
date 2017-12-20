@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MyController">
+   <children>
+      <SplitPane dividerPositions="0.15162907268170425" orientation="VERTICAL" prefHeight="800.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="89.0" prefWidth="798.0">
+               <children>
+                  <ButtonBar prefHeight="40.0" prefWidth="800.0" AnchorPane.leftAnchor="-240.0">
+                    <buttons>
+                      <Button mnemonicParsing="false" prefHeight="27.0" text="Familienmitglieder" />
+                        <Button mnemonicParsing="false" text="Antragsteller" />
+                        <Button mnemonicParsing="false" text="Einstellungen" />
+                        <Button mnemonicParsing="false" prefHeight="25.0" text="..." />
+                    </buttons>
+                  </ButtonBar>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <SplitPane dividerPositions="0.38567839195979897" layoutX="299.0" layoutY="257.0" prefHeight="673.0" prefWidth="798.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                           <children>
+                              <Label layoutX="48.0" layoutY="8.0" prefHeight="58.0" prefWidth="193.0" text="Familienmitglieder">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <ListView layoutX="48.0" layoutY="89.0" prefHeight="200.0" prefWidth="200.0" />
+                              <Button layoutX="48.0" layoutY="309.0" mnemonicParsing="false" onAction="#familienmitglied" prefHeight="27.0" prefWidth="200.0" text="Familienmitglied hinzufügen" />
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                           <children>
+                              <Label layoutX="58.0" layoutY="14.0" prefHeight="40.0" prefWidth="116.0" text="Grunddaten">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <ListView layoutX="58.0" layoutY="91.0" prefHeight="200.0" prefWidth="200.0" />
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

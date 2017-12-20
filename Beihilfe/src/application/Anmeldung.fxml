@@ -7,11 +7,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="428.0" prefWidth="476.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141">
+<AnchorPane prefHeight="428.0" prefWidth="476.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MyController">
    <children>
       <Button layoutX="143.0" layoutY="251.0" mnemonicParsing="false" text="Registrieren" />
-      <Button layoutX="270.0" layoutY="251.0" mnemonicParsing="false" text="Anmelden" />
+      <Button fx:id="anmeldebutton" layoutX="270.0" layoutY="251.0" mnemonicParsing="false" onAction="#anmelden" text="Anmelden" />
       <Button layoutX="302.0" layoutY="350.0" mnemonicParsing="false" text="Passwort vergessen" />
       <TextField layoutX="243.0" layoutY="159.0" prefHeight="27.0" prefWidth="117.0" />
       <Label layoutX="132.0" layoutY="164.0" text="Benutzername" />
