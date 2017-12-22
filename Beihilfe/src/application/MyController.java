@@ -17,6 +17,7 @@ public class MyController {
 	
 	
 	
+	
 	@FXML
 	//Einfaches ActionEvent handling, bei einem Button
 	//Öffnet in diesem Fall eine neue FXML Datei 
@@ -33,9 +34,11 @@ public class MyController {
           }
 	}
 	
+	
+	
 	@FXML
 	//Einfaches ActionEvent handling, bei einem Button
-		//Öffnet in diesem Fall eine neue FXML Datei 
+	//Öffnet in diesem Fall eine neue FXML Datei 
 	
 	public void familienmitglieder(ActionEvent familienmitgliederbutton) throws Exception {               
         try {
@@ -48,6 +51,22 @@ public class MyController {
            e.printStackTrace();
           }
 	}
+	
+	//Einfaches ActionEvent handling, bei einem Button
+	//Öffnet in diesem Fall eine neue FXML Datei 
+	
+	public void NeueRechnung(ActionEvent rechnungsbutton) throws Exception {               
+        try {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/application/Neue Rechnung.fxml"));
+                Parent root1 = (Parent) fxmlLoader.load();
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root1));  
+                stage.show();
+        } catch(Exception e) {
+           e.printStackTrace();
+          }
+	}
+	
 
 }
 
