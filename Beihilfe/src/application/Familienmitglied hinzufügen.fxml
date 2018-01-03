@@ -2,13 +2,14 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
-<?import javafx.scene.control.ContextMenu?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.collections.*?>
+<?import java.lang.String?>
+
 
 <AnchorPane prefHeight="650.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
    <children>
@@ -22,14 +23,14 @@
       <Label layoutX="116.0" layoutY="235.0" text="Status" />
       <TextField layoutX="211.0" layoutY="150.0" />
       <TextField layoutX="211.0" layoutY="190.0" />
-      <ChoiceBox layoutX="211.0" layoutY="230.0" prefHeight="27.0" prefWidth="167.0">
-         <contextMenu>
-            <ContextMenu>
-              <items>
-                <MenuItem mnemonicParsing="false" text="Test" />
-              </items>
-            </ContextMenu>
-         </contextMenu></ChoiceBox>
+      <ChoiceBox fx:id="status" layoutX="211.0" layoutY="230.0" prefHeight="27.0" prefWidth="167.0">
+      <items>  <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Kind" />
+                    <String fx:value="Ehegatte" />
+                    
+                </FXCollections>
+            </items> 
+     </ChoiceBox>
       <Label layoutX="116.0" layoutY="275.0" text="Geburtsdatum" />
       <DatePicker layoutX="211.0" layoutY="270.0" prefHeight="27.0" prefWidth="167.0" />
       <Label layoutX="116.0" layoutY="315.0" text="Straße" />
