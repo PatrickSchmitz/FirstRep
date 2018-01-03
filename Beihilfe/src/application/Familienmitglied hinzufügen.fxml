@@ -23,10 +23,19 @@
       <Label layoutX="116.0" layoutY="235.0" text="Status" />
       <TextField layoutX="211.0" layoutY="150.0" />
       <TextField layoutX="211.0" layoutY="190.0" />
+      
+     <!-- 
+     * Hier wird eine Choicebox erstellt.
+     * Zum anlegen ist es notwendig die Klasse "Collection" und "String zu importieren.
+     * Durch fx:value werden die einzelnen Auswahlmöglichkeiten festgelegt.
+     * Gespeichert werden die Auswahlmäglichkeiten in einer observableArrayList
+      -->
       <ChoiceBox fx:id="status" layoutX="211.0" layoutY="230.0" prefHeight="27.0" prefWidth="167.0">
       <items>  <FXCollections fx:factory="observableArrayList">
+      				<String fx:value="Antragsteller"/>
                     <String fx:value="Kind" />
                     <String fx:value="Ehegatte" />
+                    
                     
                 </FXCollections>
             </items> 
