@@ -10,32 +10,40 @@ public class Derby_Conn {
 	private static String protocol = "jdbc:derby:";
 	private static Connection conn = null;
 	
-	public static void start(String dbName){
+	public Connection start(String dbName){
 		try
 		{
 			conn = DriverManager.getConnection(protocol + dbName);
 			/**Da Transaktionen manuell kontrolliert werden sollen, wird
 			 * AutoCommit deaktiviert. AutoCommit ist bei JDBC standartmäßig aktiviert.*/
 			conn.setAutoCommit(false);
+			
+			return conn;
 		}
 		catch (SQLException sqle)
 		{
 	         printSQLException(sqle);
-	    }	     
+	    }	  
+		
+		return conn;
 	}
 	
-	public static void create(String dbName){
+	public Connection create(String dbName){
 		try
 		{
 			conn = DriverManager.getConnection(protocol + dbName + ";create=true");
+			
+			return conn;
 		}
 		catch (SQLException sqle)
 	    {
 	         printSQLException(sqle);
 	    }
+		
+		return conn;
 	}
 		
-	public static void close(){
+	public void close(){
 		if (framework.equals("embedded"))
         {
             try
@@ -73,7 +81,7 @@ public class Derby_Conn {
         }
 	}
 	
-	public static void printSQLException(SQLException e)
+	public void printSQLException(SQLException e)
 	 {
 	     /** Fehler und deren gründe werden angezeigt.*/
 	     while (e != null)
