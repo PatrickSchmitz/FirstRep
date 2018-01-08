@@ -1,0 +1,19 @@
+----------------------------------------------------------------
+Mon Jan 08 16:14:54 CET 2018:
+Booten von Derby-Version The Apache Software Foundation - Apache Derby - 10.14.1.0 - (1808820): Instanz a816c00e-0160-d656-b514-00000e9e7740
+für Datenbankverzeichnis C:\Users\Jonas\workspace\Beihilfe\BeihilfeDB mit Class Loader sun.misc.Launcher$AppClassLoader@73d16e93
+Geladen aus file:/C:/Users/Jonas/workspace/Beihilfe/db-derby-10.14.1.0-bin/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_151-b12
+user.dir=C:\Users\Jonas\workspace\Beihilfe
+os.name=Windows 8.1
+os.arch=amd64
+os.version=6.3
+derby.system.home=null
+Datenbank-Class Loader wurde gestartet - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Jan 08 16:14:55 CET 2018: Derby-Engine wird heruntergefahren
+----------------------------------------------------------------
+Mon Jan 08 16:14:55 CET 2018:
+Instanz a816c00e-0160-d656-b514-00000e9e7740 im Datenbankverzeichnis C:\Users\Jonas\workspace\Beihilfe\BeihilfeDB mit Class Loader sun.misc.Launcher$AppClassLoader@73d16e93 wird heruntergefahren
+----------------------------------------------------------------

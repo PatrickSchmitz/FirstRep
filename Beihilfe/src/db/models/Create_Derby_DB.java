@@ -9,21 +9,24 @@ import java.util.ArrayList;
 
 public class Create_Derby_DB {
 	
-	private String dbName = "Beihilfe";
+	private String dbName = "BeihilfeDB";
 	private static Connection conn = null;
 	
 	public static void main(String[] args){
 		
 	     new Create_Derby_DB().go(args);
-	     System.out.println("Beihilfe erstellt.");
+	     
 	     
 	}
 	
 	void go(String[] args){
 		
 		Derby_Conn dc = new Derby_Conn();
+//		dc.create(dbName);
+//		System.out.println("BeihilfeDB erstellt.");
+//		dc.delete(dbName);
+//		System.out.println("Alle tabellen der BeihilfeDB geloescht.");
 		
-		conn = dc.create(dbName);
 		conn = dc.start(dbName);
 	    
 	    System.out.println("Datenbank " + dbName + " erstellt und gestartet");
@@ -33,81 +36,44 @@ public class Create_Derby_DB {
 	    PreparedStatement psUpdate;
 	    Statement s;
 	    ResultSet rs = null;    
+	    SQL_querys sql = new SQL_querys();
 	    
 	    try
 	    {	
 	    	s = conn.createStatement();
 	    	statements.add(s);
-	    	////////////////////	Tabelle Familie	////////////////////	
-	    	s.execute("CREATE TABLE Familie(FamilieID INT NOT NULL ," + 
-	    			"Nachname VARCHAR(50) NOT NULL , Vorname VARCHAR(50) NOT NULL, " +
-	    			"Familienposition VARCHAR(50) NOT NULL, Beihilfeprozentsatz FLOAT(1) NOT NULL, " +
-	    			"Strasse VARCHAR(50) NOT NULL, Hausnummer INT NOT NULL, " +
-	    			"Stadt VARCHAR(50) NOT NULL, PLZ INT NOT NULL, Telefon INT NOT NULL, " +
-	    			"PRIMARY KEY(FamilieID))");
-         
+	    		
+	    	s.execute(sql.getCreateFamilie());
 	    	System.out.println("Tabelle Familie erstellt");
-	    	////////////////////	Tabelle Rechnungssteller	////////////////////
-	    	s.execute("CREATE TABLE Rechnungssteller(RechnungsstellerID INT NOT NULL ," + 
-	    			"Nachname VARCHAR(50) NOT NULL , Vorname VARCHAR(50) NOT NULL, " +
-	    			"Amtsbezeichnung VARCHAR(50) NOT NULL, " +
-	    			"Strasse VARCHAR(50) NOT NULL, Hausnummer INT NOT NULL, " +
-	    			"Stadt VARCHAR(50) NOT NULL, PLZ INT NOT NULL,  " +
-	    			"Kontonummer BIGINT NOT NULL, BLZ BIGINT NOT NULL,  " +
-	    			"Bank VARCHAR(50) NOT NULL, Kontoinhaber VARCHAR(50) NOT NULL,  " +
-	    			"Entfernung INT NOT NULL, KostenOEPNV FLOAT NOT NULL,  " +
-	    			"PRIMARY KEY(RechnungsstellerID))");
-         
+	    	
+	    	s.execute(sql.getCreateRechnungssteller());         
 	    	System.out.println("Tabelle Rechnungssteller erstellt");
-	    	////////////////////	Tabelle Beihilfereglungen	////////////////////
-	    	s.execute("CREATE TABLE Beihilfereglungen(BeihilfereglungenID INT NOT NULL ," + 
-	    			"Zeitgrenze INT NOT NULL , Mindestbetrag FLOAT NOT NULL, " +
-	    			"PRIMARY KEY(BeihilfereglungenID))");
-         
-	    	System.out.println("Tabelle Beihilfereglungen erstellt");
-	    	////////////////////	Tabelle Kostenarten	////////////////////
-	    	s.execute("CREATE TABLE Kostenarten(KostenartenID INT NOT NULL ," + 
-	    			"Name VARCHAR(50) NOT NULL, " +
-	    			"PRIMARY KEY(KostenartenID))");
-      
+	    	
+	    	s.execute(sql.getCreateBeihilferegelungen());
+	    	System.out.println("Tabelle Beihilferegelungen erstellt");
+	    	
+	    	s.execute(sql.getCreateKostenarten());
 	    	System.out.println("Tabelle Kostenarten erstellt");
-	    	////////////////////	Tabelle Dienstanschritft	////////////////////
-	    	s.execute("CREATE TABLE Dienstanschritft(DienstanschritftID INT NOT NULL ," + 
-	    			"Organisation VARCHAR(50) NOT NULL, Abteilung VARCHAR(50) NOT NULL, " +
-	    			"Strasse VARCHAR(50) NOT NULL, Hausnummer INT NOT NULL, " +
-	    			"Stadt VARCHAR(50) NOT NULL, PLZ INT NOT NULL, " +
-	    			"PRIMARY KEY(DienstanschritftID))");
-   
+	    	
+	    	s.execute(sql.getCreateDienstanschrift());
 	    	System.out.println("Tabelle Dienstanschritft erstellt");
-	    	////////////////////	Tabelle Dienstdaten	////////////////////
-	    	s.execute("CREATE TABLE Dienstdaten(DienstdatenID INT NOT NULL ," +
-	    			"DienstanschritftID INT NOT NULL references Dienstanschritft(DienstanschritftID) ," + 
-	    			"Kennziffer BIGINT NOT NULL, Amtsbezeichnung VARCHAR(50) NOT NULL, " +
-	    			"Verguetungsgruppe INT NOT NULL, " +
-	    			"PRIMARY KEY(DienstdatenID))");
-
+	    	
+	    	s.execute(sql.getCreateDienstdaten());
 	    	System.out.println("Tabelle Dienstdaten erstellt");
-	    	////////////////////	Tabelle Antragsteller	////////////////////
-	    	s.execute("CREATE TABLE Antragsteller(AntragstellerID INT NOT NULL ," +
-	    			"FamilieID INT NOT NULL references Familie(FamilieID) ," + 
-	    			"DienstdatenID INT NOT NULL references Dienstdaten(DienstdatenID) ," +
-	    			"BeihilfereglungenID INT NOT NULL references Beihilfereglungen(BeihilfereglungenID) ," +
-	    			"PRIMARY KEY(AntragstellerID))");
-
-		    System.out.println("Tabelle Antragsteller erstellt");
-		    ////////////////////	Tabelle Rechnungen	////////////////////
-		    s.execute("CREATE TABLE Rechnungen(RechnungenID INT NOT NULL ," +
-	    			"FamilieID INT NOT NULL references Familie(FamilieID) ," + 
-	    			"RechnungsstellerID INT NOT NULL references Rechnungssteller(RechnungsstellerID) ," +
-	    			"KostenartenID INT NOT NULL references Kostenarten(KostenartenID) ," +
-	    			"PRIMARY KEY(RechnungenID))");
-
+	    	
+	    	s.execute(sql.getCreateAntragsteller());
+	    	System.out.println("Tabelle Antragsteller erstellt");
+	    	
+		    s.execute(sql.getCreateRechnungen());
 		    System.out.println("Tabelle Rechnungen erstellt");
          
+		    conn.close();
 	    }
 	    catch (SQLException sqle)
 	    {
 	         dc.printSQLException(sqle);
 	    }   
+	    
+	    
 	}
 }

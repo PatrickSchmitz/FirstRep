@@ -3,6 +3,8 @@ package db.models;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 
 public class Derby_Conn {
 
@@ -28,22 +30,7 @@ public class Derby_Conn {
 		return conn;
 	}
 	
-	public Connection create(String dbName){
-		try
-		{
-			conn = DriverManager.getConnection(protocol + dbName + ";create=true");
-			
-			return conn;
-		}
-		catch (SQLException sqle)
-	    {
-	         printSQLException(sqle);
-	    }
-		
-		return conn;
-	}
-		
-	public void close(){
+	public void close(Connection closeConn){
 		if (framework.equals("embedded"))
         {
             try
@@ -70,9 +57,9 @@ public class Derby_Conn {
             }finally
             {
             	try {
-                    if (conn != null) {
-                        conn.close();
-                        conn = null;
+                    if (closeConn != null) {
+                    	closeConn.close();
+                    	closeConn = null;
                     }
                 } catch (SQLException sqle) {
                     printSQLException(sqle);
@@ -81,9 +68,94 @@ public class Derby_Conn {
         }
 	}
 	
+	public void create(String dbName){
+		try
+		{
+			conn = DriverManager.getConnection(protocol + dbName + ";create=true");
+			System.out.println("Datenbank"+ dbName +" erstellt.");
+			
+			SQL_querys sql = new SQL_querys();
+			ArrayList<Statement> statements = new ArrayList<Statement>(); // list of Statements, PreparedStatements
+		    Statement s;
+		    			
+			s = conn.createStatement();
+	    	statements.add(s);
+	    		
+	    	s.execute(sql.getCreateFamilie());
+	    	System.out.println("Tabelle Familie erstellt!");
+	    	
+	    	s.execute(sql.getCreateRechnungssteller());         
+	    	System.out.println("Tabelle Rechnungssteller erstellt!");
+	    	
+	    	s.execute(sql.getCreateBeihilferegelungen());
+	    	System.out.println("Tabelle Beihilferegelungen erstellt!");
+	    	
+	    	s.execute(sql.getCreateKostenarten());
+	    	System.out.println("Tabelle Kostenarten erstellt!");
+	    	
+	    	s.execute(sql.getCreateDienstanschrift());
+	    	System.out.println("Tabelle Dienstanschritft erstellt!");
+	    	
+	    	s.execute(sql.getCreateDienstdaten());
+	    	System.out.println("Tabelle Dienstdaten erstellt!");
+	    	
+	    	s.execute(sql.getCreateAntragsteller());
+	    	System.out.println("Tabelle Antragsteller erstellt!");
+	    	
+		    s.execute(sql.getCreateRechnungen());
+		    System.out.println("Tabelle Rechnungen erstellt!");
+		}
+		catch (SQLException sqle)
+	    {
+	         printSQLException(sqle);
+	    }
+	}
+	
+	public void delete(String dbName){
+		try
+		{
+			conn = start(dbName);
+			ArrayList<Statement> statements = new ArrayList<Statement>();
+		    Statement s;
+			s = conn.createStatement();
+	    	statements.add(s);
+	    		
+	    	s.execute("DROP TABLE Rechnungen");
+	    	System.out.println("Tabelle Rechnungen geloescht!");
+	    	
+	    	s.execute("DROP TABLE Antragsteller");
+	    	System.out.println("Tabelle Antragsteller geloescht!");
+	    	
+	    	s.execute("DROP TABLE Familie");
+	    	System.out.println("Tabelle Familie geloescht!");
+	    	
+	    	s.execute("DROP TABLE Rechnungssteller");
+	    	System.out.println("Tabelle Rechnungssteller geloescht!");
+	    	
+	    	s.execute("DROP TABLE Beihilferegelungen");
+	    	System.out.println("Tabelle Beihilferegelungen geloescht!");
+	    	
+	    	s.execute("DROP TABLE Kostenarten");
+	    	System.out.println("Tabelle Kostenarten geloescht!");
+	    	
+	    	s.execute("DROP TABLE Dienstdaten");
+	    	System.out.println("Tabelle Dienstdaten geloescht!");
+	    	
+	    	s.execute("DROP TABLE Dienstanschrift");
+	    	System.out.println("Tabelle Dienstanschrift geloescht!");
+	    	
+	    	close(conn);
+
+		}
+		catch (SQLException sqle)
+	    {
+	         printSQLException(sqle);
+	    }
+	}
+	
 	public void printSQLException(SQLException e)
 	 {
-	     /** Fehler und deren gründe werden angezeigt.*/
+	     /** Fehler und deren Gründe werden angezeigt.*/
 	     while (e != null)
 	     {
 	         System.err.println("\n----- SQLException -----");
