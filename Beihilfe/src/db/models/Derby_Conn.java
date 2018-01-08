@@ -11,6 +11,7 @@ public class Derby_Conn {
 	private static String framework = "embedded";
 	private static String protocol = "jdbc:derby:";
 	private static Connection conn = null;
+	private static String standardDB = "BeihilfeDB";
 	
 	public Connection start(String dbName){
 		try
@@ -104,6 +105,9 @@ public class Derby_Conn {
 	    	
 		    s.execute(sql.getCreateRechnungen());
 		    System.out.println("Tabelle Rechnungen erstellt!");
+		    
+		    conn.commit();
+//		    close(conn);
 		}
 		catch (SQLException sqle)
 	    {
@@ -114,10 +118,10 @@ public class Derby_Conn {
 	public void delete(String dbName){
 		try
 		{
-			conn = start(dbName);
+			Connection deleteConn = start(dbName);
 			ArrayList<Statement> statements = new ArrayList<Statement>();
 		    Statement s;
-			s = conn.createStatement();
+			s = deleteConn.createStatement();
 	    	statements.add(s);
 	    		
 	    	s.execute("DROP TABLE Rechnungen");
@@ -144,7 +148,8 @@ public class Derby_Conn {
 	    	s.execute("DROP TABLE Dienstanschrift");
 	    	System.out.println("Tabelle Dienstanschrift geloescht!");
 	    	
-	    	close(conn);
+	    	deleteConn.commit();
+//	    	close(deleteConn);
 
 		}
 		catch (SQLException sqle)
@@ -167,4 +172,14 @@ public class Derby_Conn {
 	         e = e.getNextException();
 	     }
 	 }
+
+	public static String getStandardDB() {
+		return standardDB;
+	}
+
+	public static void setStandardDB(String standardDB) {
+		Derby_Conn.standardDB = standardDB;
+	}
+	
+	
 }

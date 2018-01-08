@@ -55,66 +55,32 @@ public class SQL_querys {
 		return createFamilie;
 	}
 
-	public void setCreateFamilie(String createFamilie) {
-		this.createFamilie = createFamilie;
-	}
-
 	public String getCreateRechnungssteller() {
 		return createRechnungssteller;
-	}
-
-	public void setCreateRechnungssteller(String createRechnungssteller) {
-		this.createRechnungssteller = createRechnungssteller;
 	}
 
 	public String getCreateBeihilferegelungen() {
 		return createBeihilferegelungen;
 	}
 
-	public void setCreateBeihilferegelungen(String createBeihilferegelungen) {
-		this.createBeihilferegelungen = createBeihilferegelungen;
-	}
-
 	public String getCreateKostenarten() {
 		return createKostenarten;
-	}
-
-	public void setCreateKostenarten(String createKostenarten) {
-		this.createKostenarten = createKostenarten;
 	}
 
 	public String getCreateDienstanschrift() {
 		return createDienstanschrift;
 	}
 
-	public void setCreateDienstanschrift(String createDienstanschrift) {
-		this.createDienstanschrift = createDienstanschrift;
-	}
-
 	public String getCreateDienstdaten() {
 		return createDienstdaten;
-	}
-
-	public void setCreateDienstdaten(String createDienstdaten) {
-		this.createDienstdaten = createDienstdaten;
 	}
 
 	public String getCreateAntragsteller() {
 		return createAntragsteller;
 	}
 
-	public void setCreateAntragsteller(String createAntragsteller) {
-		this.createAntragsteller = createAntragsteller;
-	}
-
 	public String getCreateRechnungen() {
 		return createRechnungen;
 	}
 
-	public void setCreateRechnungen(String createRechnungen) {
-		this.createRechnungen = createRechnungen;
-	}
-	
-	
-	
 }
