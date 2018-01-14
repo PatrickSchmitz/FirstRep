@@ -31,7 +31,7 @@ public class Save_Data {
 	    PreparedStatement psUpdate;
 	    Statement s;
 	    ResultSet rs = null;    
-	    SQL_querys sql = new SQL_querys();
+	    SQL_querys_create sql = new SQL_querys_create();
 	    
 	    try
 	    {	

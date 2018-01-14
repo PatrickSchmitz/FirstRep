@@ -1,6 +1,6 @@
 package db.models;
 
-public class SQL_querys {
+public class SQL_querys_create {
 	
 	private String createFamilie = ("CREATE TABLE Familie(FamilieID INT NOT NULL ," + 
 			"Nachname VARCHAR(50) NOT NULL , Vorname VARCHAR(50) NOT NULL, " +

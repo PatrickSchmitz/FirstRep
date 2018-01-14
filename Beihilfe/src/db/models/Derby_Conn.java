@@ -75,7 +75,7 @@ public class Derby_Conn {
 			conn = DriverManager.getConnection(protocol + dbName + ";create=true");
 			System.out.println("Datenbank"+ dbName +" erstellt.");
 			
-			SQL_querys sql = new SQL_querys();
+			SQL_querys_create sql = new SQL_querys_create();
 			ArrayList<Statement> statements = new ArrayList<Statement>(); // list of Statements, PreparedStatements
 		    Statement s;
 		    			
