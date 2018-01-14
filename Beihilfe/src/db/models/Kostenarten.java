@@ -1,9 +1,13 @@
 package db.models;
 
+import java.util.ArrayList;
+
 public class Kostenarten {
 
 	private int kostenartenID;
 	private String kostenName;
+	
+	protected ArrayList<Kostenarten> kostenartenListe = new ArrayList<Kostenarten>();
 	
 	public Kostenarten(int kostenartenID, String kostenName) {
 		super();
@@ -25,6 +29,10 @@ public class Kostenarten {
 
 	public void setKostenName(String kostenName) {
 		this.kostenName = kostenName;
+	}
+
+	public ArrayList<Kostenarten> getKostenartenListe() {
+		return kostenartenListe;
 	}
 
 	@Override

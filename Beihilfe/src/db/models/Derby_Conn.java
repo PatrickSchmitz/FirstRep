@@ -107,7 +107,7 @@ public class Derby_Conn {
 		    System.out.println("Tabelle Rechnungen erstellt!");
 		    
 		    conn.commit();
-//		    close(conn);
+		    s.close();
 		}
 		catch (SQLException sqle)
 	    {
@@ -149,7 +149,7 @@ public class Derby_Conn {
 	    	System.out.println("Tabelle Dienstanschrift geloescht!");
 	    	
 	    	deleteConn.commit();
-//	    	close(deleteConn);
+	    	s.close();
 
 		}
 		catch (SQLException sqle)

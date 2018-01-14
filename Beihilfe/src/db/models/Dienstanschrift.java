@@ -1,25 +1,29 @@
 package db.models;
 
+import java.util.ArrayList;
+
 public class Dienstanschrift {
 
 	private int dienstanschriftID;
-	private String Organisation;
-	private String Abteilung;
-	private String dienstStrasse;
-	private int dienstHausnummer;
-	private String dienstStadt;
-	private int dienstPlz;
+	private String organisation;
+	private String abteilung;
+	private String strasse;
+	private int hausnummer;
+	private String stadt;
+	private int plz;
 	
-	public Dienstanschrift(int dienstanschriftID, String organisation, String abteilung, String dienstStrasse,
-			int dienstHausnummer, String dienstStadt, int dienstPlz) {
+	protected ArrayList<Dienstanschrift> dienstanschriftListe = new ArrayList<Dienstanschrift>();
+
+	public Dienstanschrift(int dienstanschriftID, String organisation, String abteilung, String strasse, int hausnummer,
+			String stadt, int plz) {
 		super();
 		this.dienstanschriftID = dienstanschriftID;
-		Organisation = organisation;
-		Abteilung = abteilung;
-		this.dienstStrasse = dienstStrasse;
-		this.dienstHausnummer = dienstHausnummer;
-		this.dienstStadt = dienstStadt;
-		this.dienstPlz = dienstPlz;
+		this.organisation = organisation;
+		this.abteilung = abteilung;
+		this.strasse = strasse;
+		this.hausnummer = hausnummer;
+		this.stadt = stadt;
+		this.plz = plz;
 	}
 
 	public int getDienstanschriftID() {
@@ -31,57 +35,63 @@ public class Dienstanschrift {
 	}
 
 	public String getOrganisation() {
-		return Organisation;
+		return organisation;
 	}
 
 	public void setOrganisation(String organisation) {
-		Organisation = organisation;
+		this.organisation = organisation;
 	}
 
 	public String getAbteilung() {
-		return Abteilung;
+		return abteilung;
 	}
 
 	public void setAbteilung(String abteilung) {
-		Abteilung = abteilung;
+		this.abteilung = abteilung;
 	}
 
-	public String getDienstStrasse() {
-		return dienstStrasse;
+	public String getStrasse() {
+		return strasse;
 	}
 
-	public void setDienstStrasse(String dienstStrasse) {
-		this.dienstStrasse = dienstStrasse;
+	public void setStrasse(String strasse) {
+		this.strasse = strasse;
 	}
 
-	public int getDienstHausnummer() {
-		return dienstHausnummer;
+	public int getHausnummer() {
+		return hausnummer;
 	}
 
-	public void setDienstHausnummer(int dienstHausnummer) {
-		this.dienstHausnummer = dienstHausnummer;
+	public void setHausnummer(int hausnummer) {
+		this.hausnummer = hausnummer;
 	}
 
-	public String getDienstStadt() {
-		return dienstStadt;
+	public String getStadt() {
+		return stadt;
 	}
 
-	public void setDienstStadt(String dienstStadt) {
-		this.dienstStadt = dienstStadt;
+	public void setStadt(String stadt) {
+		this.stadt = stadt;
 	}
 
-	public int getDienstPlz() {
-		return dienstPlz;
+	public int getPlz() {
+		return plz;
 	}
 
-	public void setDienstPlz(int dienstPlz) {
-		this.dienstPlz = dienstPlz;
+	public void setPlz(int plz) {
+		this.plz = plz;
+	}
+
+	public ArrayList<Dienstanschrift> getDienstanschriftListe() {
+		return dienstanschriftListe;
 	}
 
 	@Override
 	public String toString() {
-		return "Dienstanschrift [dienstanschriftID=" + dienstanschriftID + ", Organisation=" + Organisation
-				+ ", Abteilung=" + Abteilung + ", dienstStrasse=" + dienstStrasse + ", dienstHausnummer="
-				+ dienstHausnummer + ", dienstStadt=" + dienstStadt + ", dienstPlz=" + dienstPlz + "]";
+		return "Dienstanschrift [dienstanschriftID=" + dienstanschriftID + ", organisation=" + organisation
+				+ ", abteilung=" + abteilung + ", strasse=" + strasse + ", hausnummer=" + hausnummer + ", stadt="
+				+ stadt + ", plz=" + plz + "]";
 	}
+	
+	
 }

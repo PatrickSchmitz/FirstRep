@@ -1,16 +1,17 @@
 package db.models;
 
+import java.util.ArrayList;
+
 public class Rechnungssteller {
 
 	private int rechnungsstellerID;
-	private String rsNachname;
-	private String rsVorname;
+	private String nachname;
+	private String vorname;
 	private String amtsbezeichnung;
-	private String rsStrasse;
-	private int rsHausnummer;
-	private String rsStadt;
-	private int rsPlz;
-	private long rsTelefonnummer;
+	private String strasse;
+	private int hausnummer;
+	private String stadt;
+	private int plz;
 	private long kontonummer;
 	private long blz;
 	private String bank;
@@ -18,19 +19,20 @@ public class Rechnungssteller {
 	private int entfernung;				// in Kilometern(km)
 	private float kostenOEPNV;			// in Euro(€)
 	
-	public Rechnungssteller(int rechnungsstellerID, String rsNachname, String rsVorname, String amtsbezeichnung,
-			String rsStrasse, int rsHausnummer, String rsStadt, int rsPlz, long rsTelefonnummer, long kontonummer,
-			long blz, String bank, String kontoinhaber, int entfernung, float kostenOEPNV) {
+	protected ArrayList<Rechnungssteller> rechnungsstellerListe = new ArrayList<Rechnungssteller>();
+
+	public Rechnungssteller(int rechnungsstellerID, String nachname, String vorname, String amtsbezeichnung,
+			String strasse, int hausnummer, String stadt, int plz, long kontonummer, long blz,
+			String bank, String kontoinhaber, int entfernung, float kostenOEPNV){
 		super();
 		this.rechnungsstellerID = rechnungsstellerID;
-		this.rsNachname = rsNachname;
-		this.rsVorname = rsVorname;
+		this.nachname = nachname;
+		this.vorname = vorname;
 		this.amtsbezeichnung = amtsbezeichnung;
-		this.rsStrasse = rsStrasse;
-		this.rsHausnummer = rsHausnummer;
-		this.rsStadt = rsStadt;
-		this.rsPlz = rsPlz;
-		this.rsTelefonnummer = rsTelefonnummer;
+		this.strasse = strasse;
+		this.hausnummer = hausnummer;
+		this.stadt = stadt;
+		this.plz = plz;
 		this.kontonummer = kontonummer;
 		this.blz = blz;
 		this.bank = bank;
@@ -47,20 +49,20 @@ public class Rechnungssteller {
 		this.rechnungsstellerID = rechnungsstellerID;
 	}
 
-	public String getRsNachname() {
-		return rsNachname;
+	public String getNachname() {
+		return nachname;
 	}
 
-	public void setRsNachname(String rsNachname) {
-		this.rsNachname = rsNachname;
+	public void setNachname(String nachname) {
+		this.nachname = nachname;
 	}
 
-	public String getRsVorname() {
-		return rsVorname;
+	public String getVorname() {
+		return vorname;
 	}
 
-	public void setRsVorname(String rsVorname) {
-		this.rsVorname = rsVorname;
+	public void setVorname(String vorname) {
+		this.vorname = vorname;
 	}
 
 	public String getAmtsbezeichnung() {
@@ -71,44 +73,36 @@ public class Rechnungssteller {
 		this.amtsbezeichnung = amtsbezeichnung;
 	}
 
-	public String getRsStrasse() {
-		return rsStrasse;
+	public String getStrasse() {
+		return strasse;
 	}
 
-	public void setRsStrasse(String rsStrasse) {
-		this.rsStrasse = rsStrasse;
+	public void setStrasse(String strasse) {
+		this.strasse = strasse;
 	}
 
-	public int getRsHausnummer() {
-		return rsHausnummer;
+	public int getHausnummer() {
+		return hausnummer;
 	}
 
-	public void setRsHausnummer(int rsHausnummer) {
-		this.rsHausnummer = rsHausnummer;
+	public void setHausnummer(int hausnummer) {
+		this.hausnummer = hausnummer;
 	}
 
-	public String getRsStadt() {
-		return rsStadt;
+	public String getStadt() {
+		return stadt;
 	}
 
-	public void setRsStadt(String rsStadt) {
-		this.rsStadt = rsStadt;
+	public void setStadt(String stadt) {
+		this.stadt = stadt;
 	}
 
-	public int getRsPlz() {
-		return rsPlz;
+	public int getPlz() {
+		return plz;
 	}
 
-	public void setRsPlz(int rsPlz) {
-		this.rsPlz = rsPlz;
-	}
-
-	public long getRsTelefonnummer() {
-		return rsTelefonnummer;
-	}
-
-	public void setRsTelefonnummer(long rsTelefonnummer) {
-		this.rsTelefonnummer = rsTelefonnummer;
+	public void setPlz(int plz) {
+		this.plz = plz;
 	}
 
 	public long getKontonummer() {
@@ -159,13 +153,17 @@ public class Rechnungssteller {
 		this.kostenOEPNV = kostenOEPNV;
 	}
 
+	public ArrayList<Rechnungssteller> getRechnungsstellerListe() {
+		return rechnungsstellerListe;
+	}
+
 	@Override
 	public String toString() {
-		return "Rechnungssteller [rechnungsstellerID=" + rechnungsstellerID + ", rsNachname=" + rsNachname
-				+ ", rsVorname=" + rsVorname + ", amtsbezeichnung=" + amtsbezeichnung + ", rsStrasse=" + rsStrasse
-				+ ", rsHausnummer=" + rsHausnummer + ", rsStadt=" + rsStadt + ", rsPlz=" + rsPlz + ", rsTelefonnummer="
-				+ rsTelefonnummer + ", kontonummer=" + kontonummer + ", blz=" + blz + ", bank=" + bank
-				+ ", kontoinhaber=" + kontoinhaber + ", entfernung=" + entfernung + ", kostenOEPNV=" + kostenOEPNV
-				+ "]";
-	}	
+		return "Rechnungssteller [rechnungsstellerID=" + rechnungsstellerID + ", nachname=" + nachname + ", vorname="
+				+ vorname + ", amtsbezeichnung=" + amtsbezeichnung + ", strasse=" + strasse + ", hausnummer="
+				+ hausnummer + ", stadt=" + stadt + ", plz=" + plz + ", kontonummer=" + kontonummer + ", blz="
+				+ blz + ", bank=" + bank + ", kontoinhaber=" + kontoinhaber
+				+ ", entfernung=" + entfernung + ", kostenOEPNV=" + kostenOEPNV + "]";
+	}
+	
 }
