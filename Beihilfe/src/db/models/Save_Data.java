@@ -18,6 +18,7 @@ public class Save_Data {
 		Statement s;
 	    ResultSet rs = null;    
 	    Familie f = null;
+	    f.familienListe = null;
 	    
 	    try{	
 	    	s = conn.createStatement();
@@ -54,6 +55,7 @@ public class Save_Data {
 		Statement s;
 	    ResultSet rs = null;    
 	    Rechnungssteller r = null;
+	    r.rechnungsstellerListe = null;
 	    
 	    try{	
 	    	s = conn.createStatement();
@@ -94,6 +96,7 @@ public class Save_Data {
 		Statement s;
 	    ResultSet rs = null;    
 	    Beihilferegelungen b = null;
+	    b.beihilferegelungenListe = null;
 	    
 	    try{	
 	    	s = conn.createStatement();
@@ -123,6 +126,7 @@ public class Save_Data {
 		Statement s;
 	    ResultSet rs = null;    
 	    Kostenarten k = null;
+	    k.kostenartenListe = null;
 	    
 	    try{	
 	    	s = conn.createStatement();
@@ -151,6 +155,7 @@ public class Save_Data {
 		Statement s;
 	    ResultSet rs = null;    
 	    Dienstanschrift d = null;
+	    d.dienstanschriftListe = null;
 	    
 	    try{	
 	    	s = conn.createStatement();
@@ -184,6 +189,7 @@ public class Save_Data {
 		Statement s;
 	    ResultSet rs = null;    
 	    DienstlicheDaten d = null;
+	    d.dienstlicheDatenListe = null;
 	    
 	    try{	
 	    	s = conn.createStatement();
