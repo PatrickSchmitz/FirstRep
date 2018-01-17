@@ -212,5 +212,41 @@ public class Save_Data {
 	         dc.printSQLException(sqle);
 	    }
 	}
+	
+	@SuppressWarnings("null")
+	public void saveRechnungen(){
+		
+		Derby_Conn dc = new Derby_Conn();
+		conn = dc.start(dbName);
+		Statement s;
+	    ResultSet rs = null;    
+	    Rechnungen r = null;
+	    r.rechnungenListe = null;
+	    
+	    try{	
+	    	s = conn.createStatement();
+	    	rs = s.executeQuery("SELECT * FROM Rechnungen ORDER BY RechnungenID");
+	    	while(rs.next()){
+	    		r.rechnungenListe.add(new Rechnungen(
+	    			rs.getInt("DienstdatenID"), 
+	    			rs.getInt("DienstanschriftID"),
+	    			rs.getInt("DienstdatenID"), 
+	    			rs.getInt("DienstanschriftID"),
+	    			rs.getInt("DienstdatenID"), 
+	    			rs.getFloat("Kennziffer"),
+	    			rs.getDate("Datum"))); 
+	    		
+	    		r.rechnungenListe.add(r);
+	    	}
+	    	rs.close();
+	    	s.close();
+	    }
+	    catch (SQLException sqle)
+	    {
+	         dc.printSQLException(sqle);
+	    }
+	}
+	
+	
 		
 }

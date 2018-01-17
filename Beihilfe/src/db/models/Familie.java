@@ -1,5 +1,8 @@
 package db.models;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class Familie {
@@ -114,6 +117,41 @@ public class Familie {
 
 	public ArrayList<Familie> getFamilienListe() {
 		return familienListe;
+	}
+	
+	public void insertData() {
+		
+		Derby_Conn dc = new Derby_Conn();
+		Connection conn = dc.start(Derby_Conn.getStandardDB());
+		
+		try
+	    {			
+			String query = " INSERT INTO Familie (Nachname, Vorname, Familienposition, Beihilfeprozentsatz, Strasse,"
+					+ " Hausnummer, Stadt, PLZ, Telefon) values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			PreparedStatement preparedStmt = conn.prepareStatement(query);	
+
+			preparedStmt.setString(1, nachname);
+			preparedStmt.setString(2, vorname);
+			preparedStmt.setString	(3, familienPos);
+			preparedStmt.setFloat (4, beihilfeprozentsatz);
+			preparedStmt.setString	(5, strasse);
+			preparedStmt.setInt	(6, hausnummer);
+			preparedStmt.setString(7, stadt);
+			preparedStmt.setLong(8, plz);
+			preparedStmt.setLong(9, telefonnummer);
+		      
+			preparedStmt.execute();
+			System.out.println("Neuer Eintrag in " + this.getClass());
+			System.out.println("Nachname:" + nachname + " Vorname:" + vorname 
+					+ " Familienposition:" + familienPos + " Beihilfeprozentsatz:" + beihilfeprozentsatz
+					+ " Strasse:" + strasse + " Hausnummer:" + hausnummer + " Stadt:" + stadt
+					+ " PLZ:" + plz + " Telefon:" + telefonnummer);
+			preparedStmt.close();
+	    }
+		catch (SQLException sqle)
+	    {
+	      dc.printSQLException(sqle);
+	    }		
 	}
 
 	@Override

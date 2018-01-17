@@ -73,6 +73,9 @@ public class SQL_querys_create {
 			"FamilieID INT NOT NULL references Familie(FamilieID) ," + 
 			"RechnungsstellerID INT NOT NULL references Rechnungssteller(RechnungsstellerID) ," +
 			"KostenartenID INT NOT NULL references Kostenarten(KostenartenID) ," +
+			"Rechnungsnummer INT NOT NULL, " +
+			"Betrag FLOAT NOT NULL, " +
+			"Datum DATE NOT NULL, " +
 			"PRIMARY KEY(RechnungenID))");
 
 	public String getCreateFamilie() {

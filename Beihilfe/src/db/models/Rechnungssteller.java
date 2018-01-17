@@ -1,5 +1,8 @@
 package db.models;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class Rechnungssteller {
@@ -155,6 +158,49 @@ public class Rechnungssteller {
 
 	public ArrayList<Rechnungssteller> getRechnungsstellerListe() {
 		return rechnungsstellerListe;
+	}
+
+	public void insertData() {
+		
+		Derby_Conn dc = new Derby_Conn();
+		Connection conn = dc.start(Derby_Conn.getStandardDB());
+		
+		try
+	    {
+			String query = " INSERT INTO Rechnungssteller (Nachname, Vorname, Amtsbezeichnung, Strasse, Hausnummer"
+					+ "Stadt, PLZ, Kontonummer, BLZ, Bank, Kontoinhaber, Entfernung, KostenOEPNV) "
+					+ "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			PreparedStatement preparedStmt = conn.prepareStatement(query);	
+
+			preparedStmt.setString(1, nachname);
+			preparedStmt.setString(2, vorname);
+			preparedStmt.setString(3, amtsbezeichnung);
+			preparedStmt.setString(4, strasse);
+			preparedStmt.setFloat(5, hausnummer);
+			preparedStmt.setString(6, stadt);
+			preparedStmt.setInt(7, plz);
+			preparedStmt.setLong(8, kontonummer);
+			preparedStmt.setLong(9, blz);
+			preparedStmt.setString(10, bank);
+			preparedStmt.setString(11, kontoinhaber);
+			preparedStmt.setFloat(12, entfernung);
+			preparedStmt.setFloat(13, kostenOEPNV);
+
+		      
+			preparedStmt.execute();
+			
+			System.out.println("Neuer Eintrag in " + this.getClass());
+			System.out.println("Nachname:" + nachname + " Vorname:" + vorname + " Amtsbezeichnung:" + amtsbezeichnung
+							+ " Strasse:" + strasse + " Hausnummer:" + hausnummer + " Stadt:" + stadt
+							+ " PLZ:" + plz + " Kontonummer:" + kontonummer + " BLZ:" + blz
+							+ " Bank:" + bank + " Kontoinhaber:" + kontoinhaber + " Entfernung:" + entfernung
+							+ " KostenOEPNV:" + kostenOEPNV);
+			preparedStmt.close();
+	    }
+	    catch (SQLException sqle)
+	    {
+	      dc.printSQLException(sqle);
+	    }		
 	}
 
 	@Override

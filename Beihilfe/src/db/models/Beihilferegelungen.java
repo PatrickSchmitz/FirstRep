@@ -1,5 +1,8 @@
 package db.models;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class Beihilferegelungen {
@@ -44,6 +47,30 @@ public class Beihilferegelungen {
 
 	public ArrayList<Beihilferegelungen> getBeihilferegelungenListe() {
 		return beihilferegelungenListe;
+	}
+	
+	public void insertData() {
+		
+		Derby_Conn dc = new Derby_Conn();
+		Connection conn = dc.start(Derby_Conn.getStandardDB());
+		
+		try
+	    {			
+			String query = " INSERT INTO Beihilferegelungen (Zeitgrenze, Mindestbetrag) values (?, ?)";
+			PreparedStatement preparedStmt = conn.prepareStatement(query);	
+
+			preparedStmt.setInt (1, zeitgenze);
+			preparedStmt.setFloat (2, mindestbetrag);
+		      
+			preparedStmt.execute();
+			System.out.println("Neuer Eintrag in " + this.getClass());
+			System.out.println("Zeitgrenze:" + zeitgenze + " Mindestbetrag:" + mindestbetrag);
+			preparedStmt.close();
+	    }
+		catch (SQLException sqle)
+	    {
+	      dc.printSQLException(sqle);
+	    }		
 	}
 
 	@Override

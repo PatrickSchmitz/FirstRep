@@ -1,5 +1,8 @@
 package db.models;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class Dienstanschrift {
@@ -86,6 +89,36 @@ public class Dienstanschrift {
 		return dienstanschriftListe;
 	}
 
+	public void insertData() {
+		
+		Derby_Conn dc = new Derby_Conn();
+		Connection conn = dc.start(Derby_Conn.getStandardDB());
+		
+		try
+	    {			
+			String query = " INSERT INTO Dienstanschrift (Organisation, Abteilung, Strasse, Hausnummer, Stadt, PLZ) "
+					+ "values (?, ?, ?, ?, ?, ?)";
+			PreparedStatement preparedStmt = conn.prepareStatement(query);	
+
+			preparedStmt.setString(1, organisation);
+			preparedStmt.setString(2, abteilung);
+			preparedStmt.setString	(3, strasse);
+			preparedStmt.setInt (4, hausnummer);
+			preparedStmt.setString (5, stadt);
+			preparedStmt.setInt (5, plz);
+		      
+			preparedStmt.execute();
+			System.out.println("Neuer Eintrag in " + this.getClass());
+			System.out.println("Organisation:" + organisation + " Abteilung:" + abteilung + " Strasse:" + strasse
+					+ " Hausnummer:" + hausnummer + " Stadt:" + stadt + " PLZ:" + plz);
+			preparedStmt.close();
+	    }
+		catch (SQLException sqle)
+	    {
+	      dc.printSQLException(sqle);
+	    }		
+	}
+	
 	@Override
 	public String toString() {
 		return "Dienstanschrift [dienstanschriftID=" + dienstanschriftID + ", organisation=" + organisation
