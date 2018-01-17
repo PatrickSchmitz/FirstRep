@@ -35,8 +35,6 @@
       				<String fx:value="Antragsteller"/>
                     <String fx:value="Kind" />
                     <String fx:value="Ehegatte" />
-                    
-                    
                 </FXCollections>
             </items> 
      </ChoiceBox>
