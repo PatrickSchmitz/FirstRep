@@ -186,7 +186,7 @@ public class Rechnungssteller {
 		
 		try
 	    {
-			String query = " INSERT INTO Rechnungssteller (Nachname, Vorname, Amtsbezeichnung, Strasse, Hausnummer"
+			String query = " INSERT INTO Rechnungssteller (Nachname, Vorname, Amtsbezeichnung, Strasse, Hausnummer,"
 					+ "Stadt, PLZ, Kontonummer, BLZ, Bank, Kontoinhaber, Entfernung, KostenOEPNV) "
 					+ "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			PreparedStatement preparedStmt = conn.prepareStatement(query);	
