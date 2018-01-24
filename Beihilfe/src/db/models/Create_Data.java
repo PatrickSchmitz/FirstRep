@@ -6,8 +6,7 @@ public class Create_Data {
 	public static void main(String[] args){
 		
 		bspDatenFamilie();
-		System.out.println(Long.MAX_VALUE);
-		
+		bspDatenRechnungssteller();		
 	}
 	
 	public static void bspDatenFamilie() {
@@ -18,5 +17,15 @@ public class Create_Data {
 		f2.insertData();
 		Familie f3 = new Familie("Mayer", "Lisa", "Kind", 0.8f, "Neustr", 1, "Bocholt", 46397, 12345678910L);
 		f3.insertData();
+	}
+	
+	public static void bspDatenRechnungssteller() {
+		
+//		Rechnungssteller f1 = new Rechnungssteller("Mayer", "Hanz", "Antragsteller", 0.8f, "Neustr", 1, "Bocholt", 46397, 12345678910L);
+//		f1.insertData();
+//		Rechnungssteller f2 = new Rechnungssteller("Mayer", "Anna", "Frau", 0.8f, "Neustr", 1, "Bocholt", 46397, 12345678910L);
+//		f2.insertData();
+//		Rechnungssteller f3 = new Rechnungssteller("Mayer", "Lisa", "Kind", 0.8f, "Neustr", 1, "Bocholt", 46397, 12345678910L);
+//		f3.insertData();
 	}
 }
