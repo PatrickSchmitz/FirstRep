@@ -16,7 +16,7 @@ public class Rechnungen {
 	private float betrag;
 	private Date datum;
 	
-	protected ArrayList<Rechnungen> rechnungenListe = new ArrayList<Rechnungen>();
+	protected static ArrayList<Rechnungen> rechnungenListe = new ArrayList<Rechnungen>();
 
 	public Rechnungen(int rechnunngID, int familieID, int rechnungsstellerID, int kostenartenID, int rechnungsnummer,
 			float betrag, Date datum) {

@@ -10,7 +10,7 @@ public class Kostenarten {
 	private int kostenartenID;
 	private String kostenName;
 	
-	protected ArrayList<Kostenarten> kostenartenListe = new ArrayList<Kostenarten>();
+	protected static ArrayList<Kostenarten> kostenartenListe = new ArrayList<Kostenarten>();
 	
 	public Kostenarten(int kostenartenID, String kostenName) {
 		super();

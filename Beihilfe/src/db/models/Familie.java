@@ -16,14 +16,27 @@ public class Familie {
 	private int hausnummer;
 	private String stadt;
 	private int plz;
-	private long telefonnummer;
-	
-	protected ArrayList<Familie> familienListe = new ArrayList<Familie>();
+	/** Leider können die Telefonnummern nicht mit 0 beginnen, da dies der Typ Long nicht zulaesst.	 */
+	private long telefonnummer;			
+	protected static ArrayList<Familie> familienListe = new ArrayList<Familie>();
 	
 	public Familie(int familienID, String nachname, String vorname, String familienPos, float beihilfeprozentsatz, String strasse, int hausnummer,
 			String stadt, int plz, long telefonnummer) {
 		super();
 		this.familienID = familienID;
+		this.nachname = nachname;
+		this.vorname = vorname;
+		this.familienPos = familienPos;
+		this.beihilfeprozentsatz = beihilfeprozentsatz;
+		this.strasse = strasse;
+		this.hausnummer = hausnummer;
+		this.stadt = stadt;
+		this.plz = plz;
+		this.telefonnummer = telefonnummer;
+	}
+	public Familie(String nachname, String vorname, String familienPos, float beihilfeprozentsatz, String strasse, int hausnummer,
+			String stadt, int plz, long telefonnummer) {
+		super();
 		this.nachname = nachname;
 		this.vorname = vorname;
 		this.familienPos = familienPos;

@@ -13,7 +13,7 @@ public class DienstlicheDaten {
 	private String amtsbezeichnung;
 	private int verguetungsgruppe;
 	
-	protected ArrayList<DienstlicheDaten> dienstlicheDatenListe = new ArrayList<DienstlicheDaten>();
+	protected static ArrayList<DienstlicheDaten> dienstlicheDatenListe = new ArrayList<DienstlicheDaten>();
 
 	public DienstlicheDaten(int dienstlicheDatenID, int dienstanschriftID, long kennziffer, String amtsbezeichnung,
 			int verguetungsgruppe) {

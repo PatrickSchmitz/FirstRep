@@ -22,7 +22,7 @@ public class Rechnungssteller {
 	private int entfernung;				// in Kilometern(km)
 	private float kostenOEPNV;			// in Euro(€)
 	
-	protected ArrayList<Rechnungssteller> rechnungsstellerListe = new ArrayList<Rechnungssteller>();
+	protected static ArrayList<Rechnungssteller> rechnungsstellerListe = new ArrayList<Rechnungssteller>();
 
 	public Rechnungssteller(int rechnungsstellerID, String nachname, String vorname, String amtsbezeichnung,
 			String strasse, int hausnummer, String stadt, int plz, long kontonummer, long blz,

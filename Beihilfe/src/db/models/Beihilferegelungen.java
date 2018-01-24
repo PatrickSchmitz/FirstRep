@@ -12,7 +12,7 @@ public class Beihilferegelungen {
 	private int zeitgenze; 				// in Tagen
 	private float mindestbetrag;		// in Euro(€)
 	
-	protected ArrayList<Beihilferegelungen> beihilferegelungenListe = new ArrayList<Beihilferegelungen>();
+	protected static ArrayList<Beihilferegelungen> beihilferegelungenListe = new ArrayList<Beihilferegelungen>();
 	
 	public Beihilferegelungen(int beihilfereglungenID, int zeitgenze, float mindestbetrag) {
 		super();

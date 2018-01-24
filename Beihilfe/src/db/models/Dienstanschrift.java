@@ -15,7 +15,7 @@ public class Dienstanschrift {
 	private String stadt;
 	private int plz;
 	
-	protected ArrayList<Dienstanschrift> dienstanschriftListe = new ArrayList<Dienstanschrift>();
+	protected static ArrayList<Dienstanschrift> dienstanschriftListe = new ArrayList<Dienstanschrift>();
 
 	public Dienstanschrift(int dienstanschriftID, String organisation, String abteilung, String strasse, int hausnummer,
 			String stadt, int plz) {
