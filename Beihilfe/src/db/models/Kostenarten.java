@@ -17,6 +17,11 @@ public class Kostenarten {
 		this.kostenartenID = kostenartenID;
 		this.kostenName = kostenName;
 	}
+	
+	public Kostenarten(String kostenName) {
+		super();
+		this.kostenName = kostenName;
+	}
 
 	public int getKostenartenID() {
 		return kostenartenID;

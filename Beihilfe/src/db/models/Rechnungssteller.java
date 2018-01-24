@@ -43,6 +43,25 @@ public class Rechnungssteller {
 		this.entfernung = entfernung;
 		this.kostenOEPNV = kostenOEPNV;
 	}
+	
+	public Rechnungssteller(String nachname, String vorname, String amtsbezeichnung,
+			String strasse, int hausnummer, String stadt, int plz, long kontonummer, long blz,
+			String bank, String kontoinhaber, int entfernung, float kostenOEPNV){
+		super();
+		this.nachname = nachname;
+		this.vorname = vorname;
+		this.amtsbezeichnung = amtsbezeichnung;
+		this.strasse = strasse;
+		this.hausnummer = hausnummer;
+		this.stadt = stadt;
+		this.plz = plz;
+		this.kontonummer = kontonummer;
+		this.blz = blz;
+		this.bank = bank;
+		this.kontoinhaber = kontoinhaber;
+		this.entfernung = entfernung;
+		this.kostenOEPNV = kostenOEPNV;
+	}
 
 	public int getRechnungsstellerID() {
 		return rechnungsstellerID;
