@@ -1,6 +1,7 @@
 package application;
 	
 import javafx.application.Application;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
@@ -9,7 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.BorderPane;
-
+import db.models.*;
 
 public class Main extends Application {
 	
@@ -25,6 +26,7 @@ public class Main extends Application {
         return personData;
     }
     **/
+	
    
     @Override
 	public void start(Stage primaryStage) {
@@ -42,6 +44,11 @@ public class Main extends Application {
 	
 	public static void main(String[] args) {
 		launch(args);
+		
+		Save_Data.saveFamilie();
+		Save_Data.saveRechnungssteller();
+		Save_Data.saveKostenarten();
+		System.out.println(Familie.familienListe.toString());
 		
 	}
 }

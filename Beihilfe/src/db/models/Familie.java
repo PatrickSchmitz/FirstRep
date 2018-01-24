@@ -16,9 +16,9 @@ public class Familie {
 	private int hausnummer;
 	private String stadt;
 	private int plz;
-	/** Leider können die Telefonnummern nicht mit 0 beginnen, da dies der Typ Long nicht zulaesst.	 */
+	/** Leider kï¿½nnen die Telefonnummern nicht mit 0 beginnen, da dies der Typ Long nicht zulaesst.	 */
 	private long telefonnummer;			
-	protected static ArrayList<Familie> familienListe = new ArrayList<Familie>();
+	public static ArrayList<Familie> familienListe = new ArrayList<Familie>();
 	
 	public Familie(int familienID, String nachname, String vorname, String familienPos, float beihilfeprozentsatz, String strasse, int hausnummer,
 			String stadt, int plz, long telefonnummer) {

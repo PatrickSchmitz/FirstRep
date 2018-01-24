@@ -7,10 +7,10 @@ import java.sql.Statement;
 
 public class Save_Data {
 
-	private String dbName = "BeihilfeDB";
+	private static String dbName = "BeihilfeDB";
 	private static Connection conn = null;
 	
-	public void saveFamilie(){
+	public static void saveFamilie(){
 		
 		Derby_Conn dc = new Derby_Conn();
 		conn = dc.start(dbName);
@@ -43,7 +43,7 @@ public class Save_Data {
 	    }
 	}
 
-	public void saveRechnungssteller(){
+	public static void saveRechnungssteller(){
 		
 		Derby_Conn dc = new Derby_Conn();
 		conn = dc.start(dbName);
@@ -81,7 +81,7 @@ public class Save_Data {
 	    }
 	}
 	
-	public void saveBeihilfereglungen(){
+	public static void saveBeihilfereglungen(){
 		
 		Derby_Conn dc = new Derby_Conn();
 		conn = dc.start(dbName);
@@ -108,7 +108,7 @@ public class Save_Data {
 	    }
 	}
 	
-	public void saveKostenarten(){
+	public static void saveKostenarten(){
 		
 		Derby_Conn dc = new Derby_Conn();
 		conn = dc.start(dbName);
@@ -134,7 +134,7 @@ public class Save_Data {
 	    }
 	}
 	
-	public void saveDienstanschrift(){
+	public static void saveDienstanschrift(){
 		
 		Derby_Conn dc = new Derby_Conn();
 		conn = dc.start(dbName);
@@ -165,7 +165,7 @@ public class Save_Data {
 	    }
 	}
 	
-	public void saveDienstlicheDaten(){
+	public static void saveDienstlicheDaten(){
 		
 		Derby_Conn dc = new Derby_Conn();
 		conn = dc.start(dbName);
@@ -194,7 +194,7 @@ public class Save_Data {
 	    }
 	}
 	
-	public void saveRechnungen(){
+	public static void saveRechnungen(){
 		
 		Derby_Conn dc = new Derby_Conn();
 		conn = dc.start(dbName);

@@ -107,10 +107,7 @@ public class MyController {
           }
 	}
 	
-	protected static ArrayList<Familie> familienListe = new ArrayList<Familie>();
-	{
-		
-	}
+	
 	
 	
 	
