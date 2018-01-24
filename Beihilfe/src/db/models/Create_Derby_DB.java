@@ -11,7 +11,7 @@ public class Create_Derby_DB {
 		
 		Derby_Conn dc = new Derby_Conn();
 		ceateDB(dc);
-		deleteDB(dc);
+		//deleteDB(dc);
 	}
 	
 	void ceateDB(Derby_Conn dc){

@@ -2,6 +2,7 @@ package application;
 	
 import javafx.application.Application;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
@@ -11,7 +12,21 @@ import javafx.scene.layout.BorderPane;
 
 
 public class Main extends Application {
-	@Override
+	
+	
+	/**private ObservableList<Familienmitglieder> personData = FXCollections.observableArrayList();
+	
+	personData.add(new Familienmitglieder("Hans", "Muster"));
+    personData.add(new Familienmitglieder("Ruth", "Mueller"));
+    personData.add(new Familienmitglieder("Heinz", "Kurz"));
+    personData.add(new Familienmitglieder("Cornelia", "Meier"));
+    
+    public ObservableList<Familienmitglieder> getPersonData() {
+        return personData;
+    }
+    **/
+   
+    @Override
 	public void start(Stage primaryStage) {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("/application/Anmeldung.fxml"));
