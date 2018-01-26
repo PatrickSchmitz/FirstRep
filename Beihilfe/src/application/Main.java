@@ -10,6 +10,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.BorderPane;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 import db.models.*;
 
 public class Main extends Application {
@@ -26,7 +30,15 @@ public class Main extends Application {
         return personData;
     }
     **/
-	
+	public static void main(String[] args) {
+		launch(args);
+		
+		Save_Data.saveFamilie();
+		Save_Data.saveRechnungssteller();
+		Save_Data.saveKostenarten();
+		System.out.println(Familie.familienListe.toString());
+		
+	}
    
     @Override
 	public void start(Stage primaryStage) {
@@ -41,14 +53,26 @@ public class Main extends Application {
 			e.printStackTrace();
 		}
 	}
+    
+    /** public void populateListView {
+        try {
+            String query = "SELECT * FROM Kostenarten";
+            PreparedStatement prestate = model.getConnection().prepareStatement(query);
+            ResultSet result = prestate.executeQuery();
+
+            while (result.next()) {
+                String current = result.getString("title");
+                ObservableList<String> list = FXCollections.observableArrayList(current);
+                listview.getItems().addAll(list);
+            }
+
+            prestate.close();
+            result.close();     
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    
+    **/
 	
-	public static void main(String[] args) {
-		launch(args);
-		
-		Save_Data.saveFamilie();
-		Save_Data.saveRechnungssteller();
-		Save_Data.saveKostenarten();
-		System.out.println(Familie.familienListe.toString());
-		
-	}
 }

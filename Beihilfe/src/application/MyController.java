@@ -29,9 +29,8 @@ import java.sql.PreparedStatement;
 
 public class MyController {
 	
-	
-	
-	
+	//Für die Elemente, auf die der Controller zugreifen soll
+	//und für die Implementierungen vom Handler muss eine @FXML-Annotation verwendet werden.
 	@FXML
 	//Einfaches ActionEvent handling, bei einem Button
 	//Öffnet in diesem Fall eine neue FXML Datei 
@@ -107,10 +106,5 @@ public class MyController {
           }
 	}
 	
-	
-	
-	
-	
-
 }
 

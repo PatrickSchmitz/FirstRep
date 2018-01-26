@@ -25,6 +25,11 @@
       <DatePicker layoutX="450.0" layoutY="196.0" />
       <ChoiceBox layoutX="246.0" layoutY="128.0" prefHeight="27.0" prefWidth="152.0" />
       <TextField layoutX="246.0" layoutY="162.0" prefHeight="27.0" prefWidth="152.0" />
+      
+      <!-- 
+      ChoiceBox wird mit Auswahlmöglichkeiten gefüllt mit Hilfe einer observableArrayList
+       -->
+       
       <ChoiceBox fx:id="Rechnungsart" layoutX="249.0" layoutY="270.0" prefWidth="150.0">
       <items>  <FXCollections fx:factory="observableArrayList">
       				<String fx:value="Behandlung" />
