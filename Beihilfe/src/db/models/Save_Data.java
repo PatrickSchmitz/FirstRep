@@ -7,16 +7,15 @@ import java.sql.Statement;
 
 public class Save_Data {
 
-	private static String dbName = "BeihilfeDB";
 	private static Connection conn = null;
 	
 	public static void saveFamilie(){
 		
 		Derby_Conn dc = new Derby_Conn();
-		conn = dc.start(dbName);
+		conn = dc.start(Derby_Conn.getStandardDB());
 		Statement s;
 	    ResultSet rs = null;    
-	    Familie.familienListe = null;
+	    Familie.familienListe.clear();;
 	    
 	    try{	
 	    	s = conn.createStatement();
@@ -32,10 +31,12 @@ public class Save_Data {
 	    				rs.getInt("Hausnummer"),
 	    				rs.getString("Stadt"), 
 	    				rs.getInt("PLZ"), 
-	    				rs.getInt("Telefon")));
+	    				rs.getLong("Telefon")));
 	    	}
+	    	conn.commit();
 	    	rs.close();
 	    	s.close();
+	    	conn.close();
 	    }
 	    catch (SQLException sqle)
 	    {
@@ -46,10 +47,10 @@ public class Save_Data {
 	public static void saveRechnungssteller(){
 		
 		Derby_Conn dc = new Derby_Conn();
-		conn = dc.start(dbName);
+		conn = dc.start(Derby_Conn.getStandardDB());
 		Statement s;
 	    ResultSet rs = null;
-	    Rechnungssteller.rechnungsstellerListe = null;
+	    Rechnungssteller.rechnungsstellerListe.clear();;
 	    
 	    try{	
 	    	s = conn.createStatement();
@@ -72,8 +73,10 @@ public class Save_Data {
 	    			rs.getFloat("KostenOEPNV")));
 	    		
 	    	}
+	    	conn.commit();
 	    	rs.close();
 	    	s.close();
+	    	conn.close();
 	    }
 	    catch (SQLException sqle)
 	    {
@@ -84,10 +87,10 @@ public class Save_Data {
 	public static void saveBeihilfereglungen(){
 		
 		Derby_Conn dc = new Derby_Conn();
-		conn = dc.start(dbName);
+		conn = dc.start(Derby_Conn.getStandardDB());
 		Statement s;
 	    ResultSet rs = null;    
-	    Beihilferegelungen.beihilferegelungenListe = null;
+	    Beihilferegelungen.beihilferegelungenListe.clear();;
 	    
 	    try{	
 	    	s = conn.createStatement();
@@ -99,8 +102,10 @@ public class Save_Data {
 	    			rs.getFloat("Mindestbetrag"))); 
 
 	    	}
+	    	conn.commit();
 	    	rs.close();
 	    	s.close();
+	    	conn.close();
 	    }
 	    catch (SQLException sqle)
 	    {
@@ -111,10 +116,10 @@ public class Save_Data {
 	public static void saveKostenarten(){
 		
 		Derby_Conn dc = new Derby_Conn();
-		conn = dc.start(dbName);
+		conn = dc.start(Derby_Conn.getStandardDB());
 		Statement s;
 	    ResultSet rs = null;    
-	    Kostenarten.kostenartenListe = null;
+	    Kostenarten.kostenartenListe.clear();
 	    
 	    try{	
 	    	s = conn.createStatement();
@@ -123,10 +128,11 @@ public class Save_Data {
 	    		Kostenarten.kostenartenListe.add(new Kostenarten(
 	    			rs.getInt("KostenartenID"), 
 	    			rs.getString("Name"))); 
-
 	    	}
+	    	conn.commit();
 	    	rs.close();
 	    	s.close();
+	    	conn.close();
 	    }
 	    catch (SQLException sqle)
 	    {
@@ -137,10 +143,10 @@ public class Save_Data {
 	public static void saveDienstanschrift(){
 		
 		Derby_Conn dc = new Derby_Conn();
-		conn = dc.start(dbName);
+		conn = dc.start(Derby_Conn.getStandardDB());
 		Statement s;
 	    ResultSet rs = null;    
-	    Dienstanschrift.dienstanschriftListe = null;
+	    Dienstanschrift.dienstanschriftListe.clear();
 	    
 	    try{	
 	    	s = conn.createStatement();
@@ -156,8 +162,10 @@ public class Save_Data {
 	    			rs.getInt("PLZ"))); 
 
 	    	}
+	    	conn.commit();
 	    	rs.close();
 	    	s.close();
+	    	conn.close();
 	    }
 	    catch (SQLException sqle)
 	    {
@@ -168,10 +176,10 @@ public class Save_Data {
 	public static void saveDienstlicheDaten(){
 		
 		Derby_Conn dc = new Derby_Conn();
-		conn = dc.start(dbName);
+		conn = dc.start(Derby_Conn.getStandardDB());
 		Statement s;
 	    ResultSet rs = null;    
-	    DienstlicheDaten.dienstlicheDatenListe = null;
+	    DienstlicheDaten.dienstlicheDatenListe.clear();
 	    
 	    try{	
 	    	s = conn.createStatement();
@@ -185,8 +193,10 @@ public class Save_Data {
 	    			rs.getInt("Verguetungsgruppe"))); 
 
 	    	}
+	    	conn.commit();
 	    	rs.close();
 	    	s.close();
+	    	conn.close();
 	    }
 	    catch (SQLException sqle)
 	    {
@@ -197,10 +207,10 @@ public class Save_Data {
 	public static void saveRechnungen(){
 		
 		Derby_Conn dc = new Derby_Conn();
-		conn = dc.start(dbName);
+		conn = dc.start(Derby_Conn.getStandardDB());
 		Statement s;
 	    ResultSet rs = null;    
-	    Rechnungen.rechnungenListe = null;
+	    Rechnungen.rechnungenListe.clear();
 	    
 	    try{	
 	    	s = conn.createStatement();
@@ -216,8 +226,10 @@ public class Save_Data {
 	    			rs.getDate("Datum"))); 
 	    		
 	    	}
+	    	conn.commit();
 	    	rs.close();
 	    	s.close();
+	    	conn.close();
 	    }
 	    catch (SQLException sqle)
 	    {

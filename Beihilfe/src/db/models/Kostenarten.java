@@ -50,21 +50,25 @@ public class Kostenarten {
 		
 		try
 	    {			
-			String query = " INSERT INTO Kostenarten (Name) values (?)";
+			String query = "INSERT INTO Kostenarten (Name) values (?)";
 			PreparedStatement preparedStmt = conn.prepareStatement(query);	
 
 			preparedStmt.setString(1, kostenName);
 		      
-			preparedStmt.execute();
+			preparedStmt.executeUpdate();
 			
 			System.out.println("Neuer Eintrag in " + this.getClass());
 			System.out.println("Name:" + kostenName);
+			
+			conn.commit();
 			preparedStmt.close();
+			conn.close();
 	    }
 		catch (SQLException sqle)
 	    {
 	      dc.printSQLException(sqle);
-	    }		
+	    }	
+		
 	}
 
 	@Override

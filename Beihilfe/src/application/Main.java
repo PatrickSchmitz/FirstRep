@@ -47,7 +47,7 @@ public class Main extends Application {
 		
 		Save_Data.saveFamilie();
 		Save_Data.saveRechnungssteller();
-		Save_Data.saveKostenarten();
+//		Save_Data.saveKostenarten();
 		System.out.println(Familie.familienListe.toString());
 		
 	}

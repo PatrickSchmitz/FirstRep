@@ -8,6 +8,14 @@ public class Create_Data {
 		bspDatenFamilie();
 		bspDatenRechnungssteller();	
 		bspDatenKostenarten();
+		
+		Save_Data.saveFamilie();
+		Save_Data.saveRechnungssteller();
+		Save_Data.saveKostenarten();
+		
+		System.out.println(Familie.familienListe.toString());
+		System.out.println(Rechnungssteller.rechnungsstellerListe.toString());
+		System.out.println(Kostenarten.kostenartenListe.toString());
 	}
 	
 	public static void bspDatenFamilie() {
