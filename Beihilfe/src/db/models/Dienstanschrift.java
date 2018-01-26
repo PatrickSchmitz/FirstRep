@@ -107,11 +107,14 @@ public class Dienstanschrift {
 			preparedStmt.setString (5, stadt);
 			preparedStmt.setInt (5, plz);
 		      
-			preparedStmt.execute();
+			preparedStmt.executeUpdate();
 			System.out.println("Neuer Eintrag in " + this.getClass());
 			System.out.println("Organisation:" + organisation + " Abteilung:" + abteilung + " Strasse:" + strasse
 					+ " Hausnummer:" + hausnummer + " Stadt:" + stadt + " PLZ:" + plz);
+			
+			conn.commit();
 			preparedStmt.close();
+			conn.close();
 	    }
 		catch (SQLException sqle)
 	    {

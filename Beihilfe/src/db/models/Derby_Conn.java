@@ -76,11 +76,8 @@ public class Derby_Conn {
 			System.out.println("Datenbank"+ dbName +" erstellt.");
 			
 			SQL_querys_create sql = new SQL_querys_create();
-			ArrayList<Statement> statements = new ArrayList<Statement>(); // list of Statements, PreparedStatements
 		    Statement s;
-		    			
 			s = conn.createStatement();
-	    	statements.add(s);
 	    		
 	    	s.execute(sql.getCreateFamilie());
 	    	System.out.println("Tabelle Familie erstellt!");
@@ -108,6 +105,7 @@ public class Derby_Conn {
 		    
 		    conn.commit();
 		    s.close();
+		    conn.close();
 		}
 		catch (SQLException sqle)
 	    {
@@ -118,11 +116,9 @@ public class Derby_Conn {
 	public void delete(String dbName){
 		try
 		{
-			Connection deleteConn = start(dbName);
-			ArrayList<Statement> statements = new ArrayList<Statement>();
+			Connection conn = start(dbName);
 		    Statement s;
-			s = deleteConn.createStatement();
-	    	statements.add(s);
+			s = conn.createStatement();
 	    		
 	    	s.execute("DROP TABLE Rechnungen");
 	    	System.out.println("Tabelle Rechnungen geloescht!");
@@ -148,8 +144,9 @@ public class Derby_Conn {
 	    	s.execute("DROP TABLE Dienstanschrift");
 	    	System.out.println("Tabelle Dienstanschrift geloescht!");
 	    	
-	    	deleteConn.commit();
+	    	conn.commit();
 	    	s.close();
+	    	conn.close();
 
 		}
 		catch (SQLException sqle)

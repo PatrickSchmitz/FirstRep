@@ -206,7 +206,7 @@ public class Rechnungssteller {
 			preparedStmt.setFloat(13, kostenOEPNV);
 
 		      
-			preparedStmt.execute();
+			preparedStmt.executeUpdate();
 			
 			System.out.println("Neuer Eintrag in " + this.getClass());
 			System.out.println("Nachname:" + nachname + " Vorname:" + vorname + " Amtsbezeichnung:" + amtsbezeichnung
@@ -214,7 +214,10 @@ public class Rechnungssteller {
 							+ " PLZ:" + plz + " Kontonummer:" + kontonummer + " BLZ:" + blz
 							+ " Bank:" + bank + " Kontoinhaber:" + kontoinhaber + " Entfernung:" + entfernung
 							+ " KostenOEPNV:" + kostenOEPNV);
+			
+			conn.commit();
 			preparedStmt.close();
+			conn.close();
 	    }
 	    catch (SQLException sqle)
 	    {

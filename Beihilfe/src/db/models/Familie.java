@@ -16,7 +16,7 @@ public class Familie {
 	private int hausnummer;
 	private String stadt;
 	private int plz;
-	/** Leider k�nnen die Telefonnummern nicht mit 0 beginnen, da dies der Typ Long nicht zulaesst.	 */
+	/** Leider koennen die Telefonnummern nicht mit 0 beginnen, da dies der Typ Long nicht zulaesst.	 */
 	private long telefonnummer;			
 	public static ArrayList<Familie> familienListe = new ArrayList<Familie>();
 	
@@ -153,13 +153,16 @@ public class Familie {
 			preparedStmt.setLong(8, plz);
 			preparedStmt.setLong(9, telefonnummer);
 		      
-			preparedStmt.execute();
+			preparedStmt.executeUpdate();
 			System.out.println("Neuer Eintrag in " + this.getClass());
 			System.out.println("Nachname:" + nachname + " Vorname:" + vorname 
 					+ " Familienposition:" + familienPos + " Beihilfeprozentsatz:" + beihilfeprozentsatz
 					+ " Strasse:" + strasse + " Hausnummer:" + hausnummer + " Stadt:" + stadt
 					+ " PLZ:" + plz + " Telefon:" + telefonnummer);
+			
+			conn.commit();
 			preparedStmt.close();
+			conn.close();
 	    }
 		catch (SQLException sqle)
 	    {

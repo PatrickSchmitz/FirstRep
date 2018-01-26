@@ -1,13 +1,21 @@
+<<<<<<< HEAD
 ----------------------------------------------------------------
 Wed Jan 24 13:12:29 CET 2018:
 Booten von Derby-Version The Apache Software Foundation - Apache Derby - 10.14.1.0 - (1808820): Instanz a816c00e-0161-2815-7059-0000047d5598
 fÃ¼r Datenbankverzeichnis /Users/Patrick/git/FirstRep/Beihilfe/BeihilfeDB mit Class Loader sun.misc.Launcher$AppClassLoader@7852e922
 Geladen aus file:/Users/Patrick/git/FirstRep/Beihilfe/db-derby-10.14.1.0-bin/lib/derby.jar
+=======
+----------------------------------------------------------------
+Fri Jan 26 12:30:52 CET 2018:
+Booten von Derby-Version The Apache Software Foundation - Apache Derby - 10.14.1.0 - (1808820): Instanz a816c00e-0161-323c-0de7-000006f5b388
+für Datenbankverzeichnis C:\Users\John\git\FirstRep\Beihilfe\BeihilfeDB mit Class Loader sun.misc.Launcher$AppClassLoader@2a139a55
+Geladen aus file:/C:/Users/John/git/FirstRep/Beihilfe/db-derby-10.14.1.0-bin/lib/derby.jar
+>>>>>>> branch 'master' of https://github.com/PatrickSchmitz/FirstRep.git
 java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_60-b27
-user.dir=/Users/Patrick/git/FirstRep/Beihilfe
-os.name=Mac OS X
-os.arch=x86_64
-os.version=10.13.2
+java.runtime.version=1.8.0_121-b13
+user.dir=C:\Users\John\git\FirstRep\Beihilfe
+os.name=Windows 8.1
+os.arch=amd64
+os.version=6.3
 derby.system.home=null
 Datenbank-Class Loader wurde gestartet - derby.database.classpath=''

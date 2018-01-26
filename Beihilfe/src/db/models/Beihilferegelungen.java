@@ -62,10 +62,13 @@ public class Beihilferegelungen {
 			preparedStmt.setInt (1, zeitgenze);
 			preparedStmt.setFloat (2, mindestbetrag);
 		      
-			preparedStmt.execute();
+			preparedStmt.executeUpdate();
 			System.out.println("Neuer Eintrag in " + this.getClass());
 			System.out.println("Zeitgrenze:" + zeitgenze + " Mindestbetrag:" + mindestbetrag);
+			
+			conn.commit();
 			preparedStmt.close();
+			conn.close();
 	    }
 		catch (SQLException sqle)
 	    {

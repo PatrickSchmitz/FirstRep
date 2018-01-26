@@ -95,11 +95,14 @@ public class DienstlicheDaten {
 			preparedStmt.setString	(3, amtsbezeichnung);
 			preparedStmt.setInt (4, verguetungsgruppe);
 		      
-			preparedStmt.execute();
+			preparedStmt.executeUpdate();
 			System.out.println("Neuer Eintrag in " + this.getClass());
 			System.out.println("DienstanschriftID:" + dienstanschriftID + " Kennziffer:" + kennziffer 
 					+ " Amtsbezeichnung:" + amtsbezeichnung + " Verguetungsgruppe:" + verguetungsgruppe);
+			
+			conn.commit();
 			preparedStmt.close();
+			conn.close();
 	    }
 		catch (SQLException sqle)
 	    {

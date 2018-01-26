@@ -108,13 +108,16 @@ public class Rechnungen {
 			preparedStmt.setFloat(5, betrag);
 			preparedStmt.setDate(6, (java.sql.Date) datum);
 		      
-			preparedStmt.execute();
+			preparedStmt.executeUpdate();
 			
 			System.out.println("Neuer Eintrag in " + this.getClass());
 			System.out.println("FamilieID:" + familieID + " RechnungsstellerID:" + rechnungsstellerID
 							+ " KostenartenID:" + kostenartenID + " Rechnungsnummer:" + rechnungsnummer
 							+ " Rechnungsnummer:" + rechnungsnummer);
+			
+			conn.commit();
 			preparedStmt.close();
+			conn.close();
 	    }
 	    catch (SQLException sqle)
 	    {
