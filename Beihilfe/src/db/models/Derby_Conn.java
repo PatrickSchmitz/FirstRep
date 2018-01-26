@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 
 public class Derby_Conn {
 
@@ -18,7 +17,7 @@ public class Derby_Conn {
 		{
 			conn = DriverManager.getConnection(protocol + dbName);
 			/**Da Transaktionen manuell kontrolliert werden sollen, wird
-			 * AutoCommit deaktiviert. AutoCommit ist bei JDBC standartmäßig aktiviert.*/
+			 * AutoCommit deaktiviert. AutoCommit ist bei JDBC standartmï¿½ï¿½ig aktiviert.*/
 			conn.setAutoCommit(false);
 			
 			return conn;
@@ -157,7 +156,7 @@ public class Derby_Conn {
 	
 	public void printSQLException(SQLException e)
 	 {
-	     /** Fehler und deren Gründe werden angezeigt.*/
+	     /** Fehler und deren Grï¿½nde werden angezeigt.*/
 	     while (e != null)
 	     {
 	         System.err.println("\n----- SQLException -----");
