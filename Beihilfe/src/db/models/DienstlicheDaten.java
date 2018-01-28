@@ -24,6 +24,15 @@ public class DienstlicheDaten {
 		this.amtsbezeichnung = amtsbezeichnung;
 		this.verguetungsgruppe = verguetungsgruppe;
 	}
+	
+	public DienstlicheDaten(int dienstanschriftID, long kennziffer, String amtsbezeichnung,
+			int verguetungsgruppe) {
+		super();
+		this.dienstanschriftID = dienstanschriftID;
+		this.kennziffer = kennziffer;
+		this.amtsbezeichnung = amtsbezeichnung;
+		this.verguetungsgruppe = verguetungsgruppe;
+	}
 
 	public int getDienstlicheDatenID() {
 		return dienstlicheDatenID;

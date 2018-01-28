@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Beihilferegelungen {
 	
 	
-	private int beihilfereglungenID;
+	private int beihilferegelungenID;
 	private int zeitgenze; 				// in Tagen
 	private float mindestbetrag;		// in Euro(€)
 	
@@ -16,17 +16,23 @@ public class Beihilferegelungen {
 	
 	public Beihilferegelungen(int beihilfereglungenID, int zeitgenze, float mindestbetrag) {
 		super();
-		this.beihilfereglungenID = beihilfereglungenID;
+		this.beihilferegelungenID = beihilfereglungenID;
+		this.zeitgenze = zeitgenze;
+		this.mindestbetrag = mindestbetrag;
+	}
+	
+	public Beihilferegelungen(int zeitgenze, float mindestbetrag) {
+		super();
 		this.zeitgenze = zeitgenze;
 		this.mindestbetrag = mindestbetrag;
 	}
 
-	public int getBeihilfereglungenID() {
-		return beihilfereglungenID;
+	public int getBeihilferegelungenID() {
+		return beihilferegelungenID;
 	}
 
-	public void setBeihilfereglungenID(int beihilfereglungenID) {
-		this.beihilfereglungenID = beihilfereglungenID;
+	public void setBeihilferegelungenID(int beihilfereglungenID) {
+		this.beihilferegelungenID = beihilfereglungenID;
 	}
 
 	public int getZeitgenze() {
@@ -78,7 +84,7 @@ public class Beihilferegelungen {
 
 	@Override
 	public String toString() {
-		return "Beihilfereglungen [beihilfereglungenID=" + beihilfereglungenID + ", zeitgenze=" + zeitgenze
+		return "Beihilfereglungen [beihilfereglungenID=" + beihilferegelungenID + ", zeitgenze=" + zeitgenze
 				+ ", mindestbetrag=" + mindestbetrag + "]";
 	}
 

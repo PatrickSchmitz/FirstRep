@@ -204,6 +204,36 @@ public class Save_Data {
 	    }
 	}
 	
+	public static void saveAntragsteller(){
+		
+		Derby_Conn dc = new Derby_Conn();
+		conn = dc.start(Derby_Conn.getStandardDB());
+		Statement s;
+	    ResultSet rs = null;    
+	    Antragsteller.antragstellerListe.clear();
+	    
+	    try{	
+	    	s = conn.createStatement();
+	    	rs = s.executeQuery("SELECT * FROM Antragsteller ORDER BY AntragstellerID");
+	    	while(rs.next()){
+	    		Antragsteller.antragstellerListe.add(new Antragsteller(
+	    			rs.getInt("AntragstellerID"), 
+	    			rs.getInt("FamilieID"),
+	    			rs.getInt("DienstdatenID"), 
+	    			rs.getInt("BeihilferegelungenID")));
+
+	    	}
+	    	conn.commit();
+	    	rs.close();
+	    	s.close();
+	    	conn.close();
+	    }
+	    catch (SQLException sqle)
+	    {
+	         dc.printSQLException(sqle);
+	    }
+	}
+	
 	public static void saveRechnungen(){
 		
 		Derby_Conn dc = new Derby_Conn();
@@ -217,11 +247,11 @@ public class Save_Data {
 	    	rs = s.executeQuery("SELECT * FROM Rechnungen ORDER BY RechnungenID");
 	    	while(rs.next()){
 	    		Rechnungen.rechnungenListe.add(new Rechnungen(
-	    			rs.getInt("DienstdatenID"), 
-	    			rs.getInt("DienstanschriftID"),
-	    			rs.getInt("DienstdatenID"), 
-	    			rs.getInt("DienstanschriftID"),
-	    			rs.getInt("DienstdatenID"), 
+	    			rs.getInt("RechnungenID"), 
+	    			rs.getInt("FamilieID"),
+	    			rs.getInt("RechnungsstellerID"), 
+	    			rs.getInt("KostenartenID"),
+	    			rs.getInt("Rechnungsnummer"), 
 	    			rs.getFloat("Kennziffer"),
 	    			rs.getDate("Datum"))); 
 	    		

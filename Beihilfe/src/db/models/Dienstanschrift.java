@@ -28,6 +28,17 @@ public class Dienstanschrift {
 		this.stadt = stadt;
 		this.plz = plz;
 	}
+	
+	public Dienstanschrift(String organisation, String abteilung, String strasse, int hausnummer,
+			String stadt, int plz) {
+		super();
+		this.organisation = organisation;
+		this.abteilung = abteilung;
+		this.strasse = strasse;
+		this.hausnummer = hausnummer;
+		this.stadt = stadt;
+		this.plz = plz;
+	}
 
 	public int getDienstanschriftID() {
 		return dienstanschriftID;

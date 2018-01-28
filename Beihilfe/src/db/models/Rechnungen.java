@@ -29,6 +29,17 @@ public class Rechnungen {
 		this.betrag = betrag;
 		this.datum = datum;
 	}
+	
+	public Rechnungen(int familieID, int rechnungsstellerID, int kostenartenID, int rechnungsnummer,
+			float betrag, Date datum) {
+		super();
+		this.familieID = familieID;
+		this.rechnungsstellerID = rechnungsstellerID;
+		this.kostenartenID = kostenartenID;
+		this.rechnungsnummer = rechnungsnummer;
+		this.betrag = betrag;
+		this.datum = datum;
+	}
 
 	public int getRechnunngID() {
 		return rechnunngID;
