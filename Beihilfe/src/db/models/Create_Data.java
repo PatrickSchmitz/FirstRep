@@ -58,7 +58,7 @@ public class Create_Data {
 		k1.insertData();
 		Kostenarten k2 = new Kostenarten("Medikament");
 		k2.insertData();
-		Kostenarten k3 = new Kostenarten("Allgenmein");
+		Kostenarten k3 = new Kostenarten("Hilfsmittel");
 		k3.insertData();
 	}
 	

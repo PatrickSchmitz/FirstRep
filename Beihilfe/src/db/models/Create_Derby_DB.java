@@ -10,8 +10,8 @@ public class Create_Derby_DB {
 	void go(String[] args){
 		
 		Derby_Conn dc = new Derby_Conn();
-		ceateDB(dc);
-//		deleteDB(dc);
+//		ceateDB(dc);
+		deleteDB(dc);
 	}
 	
 	void ceateDB(Derby_Conn dc){
