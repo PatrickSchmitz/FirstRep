@@ -7,7 +7,7 @@ public class Create_Data {
 
 	public static void main(String[] args){
 		
-		bspDatenFamilie();
+/**		bspDatenFamilie();
 		bspDatenRechnungssteller();	
 		bspDatenKostenarten();
 		
@@ -18,6 +18,13 @@ public class Create_Data {
 		System.out.println(Familie.familienListe.toString());
 		System.out.println(Rechnungssteller.rechnungsstellerListe.toString());
 		System.out.println(Kostenarten.kostenartenListe.toString());
+		**/
+		bspDatenRechnungen();
+		
+		Save_Data.saveRechnungen();
+		
+		System.out.println(Rechnungen.rechnungenListe.toString());
+		
 	}
 	
 	public static void bspDaten() {
@@ -76,9 +83,9 @@ public class Create_Data {
 		
 		Dienstanschrift k1 = new Dienstanschrift("Hochschule", "Wirtschft", "Neustr", 52, "Bocholt", 121234);
 		k1.insertData();
-		Dienstanschrift k2 = new Dienstanschrift("Universität", "Technik", "Altstr", 45, "Rhede", 121234);
+		Dienstanschrift k2 = new Dienstanschrift("Universitï¿½t", "Technik", "Altstr", 45, "Rhede", 121234);
 		k2.insertData();
-		Dienstanschrift k3 = new Dienstanschrift("Stadt", "Gebäudemanagement", "Gutstr", 102, "Wesel", 121234);
+		Dienstanschrift k3 = new Dienstanschrift("Stadt", "Gebï¿½udemanagement", "Gutstr", 102, "Wesel", 121234);
 		k3.insertData();
 	}
 	

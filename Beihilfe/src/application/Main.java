@@ -11,17 +11,6 @@ import javafx.stage.Stage;
 public class Main extends Application {
 	
 	
-	/**private ObservableList<Familienmitglieder> personData = FXCollections.observableArrayList();
-	
-	personData.add(new Familienmitglieder("Hans", "Muster"));
-    personData.add(new Familienmitglieder("Ruth", "Mueller"));
-    personData.add(new Familienmitglieder("Heinz", "Kurz"));
-    personData.add(new Familienmitglieder("Cornelia", "Meier"));
-    
-    public ObservableList<Familienmitglieder> getPersonData() {
-        return personData;
-    }
-    **/
 	public static void main(String[] args) {
 		launch(args);
 		

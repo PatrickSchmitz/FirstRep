@@ -35,23 +35,24 @@
                   <Button fx:id="rechnungsbutton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#NeueRechnung" text="Neue Rechnung" />
                   <AnchorPane layoutX="83.0" layoutY="203.0" prefHeight="353.0" prefWidth="693.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="203.0">
                      <children>
-                        <TableView layoutX="129.0" layoutY="41.0" prefHeight="353.0" prefWidth="693.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <TableView fx:id="tableRechnung" layoutX="129.0" layoutY="41.0" prefHeight="353.0" prefWidth="693.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <columns>
-                            <TableColumn prefWidth="128.0" text="Rechnungsdatum" />
-                            <TableColumn prefWidth="59.0" text="Betrag" />
-                              <TableColumn prefWidth="38.0" text="Text" />
-                              <TableColumn prefWidth="41.0" text="AV" />
-                              <TableColumn prefWidth="29.0" text="AB" />
-                              <TableColumn prefWidth="29.0" text="VV" />
-                              <TableColumn prefWidth="35.0" text="VB" />
-                              <TableColumn prefWidth="96.0" text="Zahlungsziel" />
-                              <TableColumn prefWidth="93.0" text="Rechnung &#10;bezahlt am&#10;" />
-                              <TableColumn prefWidth="101.0" text="Kostenart&#10;" />
-                              <TableColumn prefWidth="148.0" text="Zahlungsempfänger" />
+                            <TableColumn fx:id="spaltedatum" prefWidth="128.0" text="Rechnungsdatum" />
+                            <TableColumn fx:id="spaltebetrag" prefWidth="59.0" text="Betrag" />
+                              <TableColumn fx:id="spaltetext" prefWidth="38.0" text="Text" />
+                              <TableColumn fx:id="spalteav" prefWidth="41.0" text="AV" />
+                              <TableColumn fx:id="spalteab" prefWidth="29.0" text="AB" />
+                              <TableColumn fx:id="spaltevv" prefWidth="29.0" text="VV" />
+                              <TableColumn fx:id="spaltevb" prefWidth="35.0" text="VB" />
+                              <TableColumn fx:id="spaltezahlziel" prefWidth="96.0" text="Zahlungsziel" />
+                              <TableColumn fx:id="spaltebezahlt" prefWidth="93.0" text="Rechnung &#10;bezahlt am&#10;" />
+                              <TableColumn fx:id="spaltekostenart" prefWidth="101.0" text="Kostenart&#10;" />
+                              <TableColumn fx:id="spalteempfaenger" prefWidth="148.0" text="Zahlungsempfänger" />
                           </columns>
                         </TableView>
                      </children>
                   </AnchorPane>
+                  <Button layoutX="15.0" layoutY="55.0" mnemonicParsing="false" onAction="#ladeRechnung" text="Lade Rechnung" />
                </children></AnchorPane>
         </items>
       </SplitPane>
