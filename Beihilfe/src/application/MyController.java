@@ -5,7 +5,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
-
 import db.models.Derby_Conn;
 import db.models.Rechnungen;
 import javafx.collections.FXCollections;
@@ -16,8 +15,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -26,7 +30,14 @@ import javafx.stage.Stage;
 
 public class MyController {
 	
-	
+	 @FXML
+	    private Button anmeldebutton;
+
+	    @FXML
+	    private TextField benutzerfeld;
+
+	    @FXML
+	    private PasswordField passwortfeld;
 	
 	/**Für die Elemente, auf die der Controller zugreifen soll
 	//und für die Implementierungen vom Handler muss eine @FXML-Annotation verwendet werden.
@@ -34,21 +45,37 @@ public class MyController {
 	//Einfaches ActionEvent handling, bei einem Button
 	Öffnet in diesem Fall eine neue FXML Datei 
 	**/
-	
+	@FXML
 	public void anmelden(ActionEvent anmeldebutton) throws Exception {               
         try {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/application/Entwurf.fxml"));
+        	String benutzer = benutzerfeld.getText();
+    		String passwort = passwortfeld.getText();
+    		if (benutzer.equals("Test") && passwort.equals("1234"))
+    		{
+    			Alert alert = new Alert(AlertType.INFORMATION);
+    			alert.setTitle("Login");
+    			alert.setContentText("Login erfolgreich");
+
+    			alert.showAndWait();
+    			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/application/Entwurf.fxml"));
                 Parent root1 = (Parent) fxmlLoader.load();
                 Stage stage = new Stage();
                 stage.setScene(new Scene(root1));  
                 stage.show();
-        } catch(Exception e) {
+                }
+    		else
+    		{
+    			Alert alert = new Alert(AlertType.WARNING);
+    			alert.setTitle("Login");
+    			alert.setContentText("Falscher Benutzername oder Passwort");
+    			alert.showAndWait();
+    		}
+        		}
+         catch(Exception e) {
            e.printStackTrace();
           }
+    		  
 	}
-	
-	
-	
 	@FXML
 	//Einfaches ActionEvent handling, bei einem Button
 	//Öffnet in diesem Fall eine neue FXML Datei 

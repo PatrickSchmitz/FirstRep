@@ -12,10 +12,10 @@
       <Button layoutX="143.0" layoutY="251.0" mnemonicParsing="false" text="Registrieren" />
       <Button fx:id="anmeldebutton" layoutX="270.0" layoutY="251.0" mnemonicParsing="false" onAction="#anmelden" text="Anmelden" />
       <Button layoutX="302.0" layoutY="350.0" mnemonicParsing="false" text="Passwort vergessen" />
-      <TextField layoutX="243.0" layoutY="159.0" prefHeight="27.0" prefWidth="117.0" />
+      <TextField fx:id="benutzerfeld" layoutX="243.0" layoutY="159.0" prefHeight="27.0" prefWidth="117.0" />
       <Label layoutX="132.0" layoutY="164.0" text="Benutzername" />
       <Label layoutX="132.0" layoutY="203.0" text="Passwort" />
-      <PasswordField layoutX="243.0" layoutY="198.0" prefHeight="27.0" prefWidth="117.0" />
+      <PasswordField fx:id="passwortfeld" layoutX="243.0" layoutY="198.0" prefHeight="27.0" prefWidth="117.0" />
       <Label layoutX="189.0" layoutY="88.0" prefHeight="38.0" prefWidth="142.0" text="Anmeldung">
          <font>
             <Font size="18.0" />
