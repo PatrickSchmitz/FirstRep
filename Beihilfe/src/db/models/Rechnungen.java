@@ -39,6 +39,22 @@ public class Rechnungen {
 		this.bv = false;
 	}
 	
+	public Rechnungen(int rechnunngID, int familieID, int rechnungsstellerID, int kostenartenID, int rechnungsnummer,
+			float betrag, java.sql.Date datum, boolean av, boolean ab, boolean vv, boolean bv) {
+		super();
+		this.rechnunngID = rechnunngID;
+		this.familieID = familieID;
+		this.rechnungsstellerID = rechnungsstellerID;
+		this.kostenartenID = kostenartenID;
+		this.rechnungsnummer = rechnungsnummer;
+		this.betrag = betrag;
+		this.datum = datum;
+		this.av = av;
+		this.ab = ab;
+		this.vv = vv;
+		this.bv = bv;
+	}
+
 	public Rechnungen(int familieID, int rechnungsstellerID, int kostenartenID, int rechnungsnummer,
 			float betrag, java.sql.Date datum) {
 		super();

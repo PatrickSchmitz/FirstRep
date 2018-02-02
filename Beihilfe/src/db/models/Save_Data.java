@@ -265,7 +265,10 @@ public class Save_Data {
 	    			rs.getInt("Rechnungsnummer"), 
 	    			rs.getFloat("Betrag"),
 	    			rs.getDate("Datum"))); 
-	    		
+	    			rs.getBoolean("AV");
+	    			rs.getBoolean("AB");
+	    			rs.getBoolean("VV");
+	    			rs.getBoolean("VB");
 	    	}
 	    	conn.commit();
 	    	rs.close();
