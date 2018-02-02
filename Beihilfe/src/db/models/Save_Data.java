@@ -268,7 +268,7 @@ public class Save_Data {
 	    			rs.getBoolean("AV");
 	    			rs.getBoolean("AB");
 	    			rs.getBoolean("VV");
-	    			rs.getBoolean("VB");
+	    			rs.getBoolean("BV");
 	    	}
 	    	conn.commit();
 	    	rs.close();
