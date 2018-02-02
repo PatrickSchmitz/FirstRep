@@ -159,7 +159,7 @@ public class Create_Data {
 	
 	@SuppressWarnings("deprecation")
 	public static java.sql.Date datum(){
-		java.sql.Date date = new java.sql.Date(2017, (int)(Math.random() * 12), (int)(Math.random() * 32));
+		java.sql.Date date = new java.sql.Date(117, (int)(Math.random() * 12), (int)(Math.random() * 32));
 		return date;
 	}
 }

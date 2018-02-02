@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Rechnungen {
 
@@ -18,6 +19,7 @@ public class Rechnungen {
 	private boolean ab;
 	private boolean vv;
 	private boolean bv;
+	private long diffDays;
 	
 	protected static ArrayList<Rechnungen> rechnungenListe = new ArrayList<Rechnungen>();
 
@@ -140,6 +142,16 @@ public class Rechnungen {
 		this.bv = bv;
 	}
 
+	public long getDiffDays() {
+		Date utilDate = new Date();
+		java.sql.Date d = new java.sql.Date(utilDate.getTime());
+		
+		long diff = d.getTime()- datum.getTime();
+	    diffDays = diff / (24 * 60 * 60 * 1000);
+	    
+		return diffDays;
+	}
+
 	public ArrayList<Rechnungen> getRechnungenListe() {
 		return rechnungenListe;
 	}
@@ -183,6 +195,20 @@ public class Rechnungen {
 	    }		
 	}
 
+	public Boolean dateWarning() {
+		
+		Date utilDate = new Date();
+		java.sql.Date d = new java.sql.Date(utilDate.getTime());
+		
+		long diff = d.getTime()- datum.getTime();
+	    diffDays = diff / (24 * 60 * 60 * 1000);
+	     
+		if(diffDays<=30)
+			return true;
+		else
+			return false;
+	}
+	
 	@Override
 	public String toString() {
 		return "Rechnungen [rechnunngID=" + rechnunngID + ", familieID=" + familieID + ", rechnungsstellerID="
