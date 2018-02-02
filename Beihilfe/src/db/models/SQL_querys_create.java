@@ -76,6 +76,10 @@ public class SQL_querys_create {
 			"Rechnungsnummer INT NOT NULL, " +
 			"Betrag FLOAT NOT NULL, " +
 			"Datum DATE NOT NULL, " +
+			"AV BOOLEAN NOT NULL, " +
+			"AB BOOLEAN NOT NULL, " +
+			"VV BOOLEAN NOT NULL, " +
+			"BV BOOLEAN NOT NULL, " +
 			"PRIMARY KEY(RechnungenID))");
 
 	public String getCreateFamilie() {

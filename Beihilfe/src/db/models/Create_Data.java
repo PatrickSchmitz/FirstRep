@@ -1,7 +1,5 @@
 package db.models;
 
-import java.util.Date;
-
 public class Create_Data {
 	
 
@@ -29,14 +27,14 @@ public class Create_Data {
 	
 	public static void bspDaten() {
 		
-		Save_Data.saveFamilie();
-		Save_Data.saveRechnungssteller();
-		Save_Data.saveKostenarten();
-		Save_Data.saveBeihilfereglungen();
-		Save_Data.saveDienstanschrift();
-		Save_Data.saveDienstlicheDaten();
-		Save_Data.saveAntragsteller();
-		Save_Data.saveRechnungen();
+		bspDatenFamilie();
+		bspDatenRechnungssteller();
+		bspDatenKostenarten();
+		bspDatenBeihilferegelungen();
+		bspDatenDienstanschrift();
+		bspDatenDienstlicheDaten();
+		bspDatenAntragsteller();
+		bspDatenRechnungen();
 	}
 	
 	public static void bspDatenFamilie() {
@@ -104,7 +102,7 @@ public class Create_Data {
 		
 		Save_Data.saveFamilie();
 		Save_Data.saveDienstlicheDaten();
-		Save_Data.saveBeihilfereglungen();
+		Save_Data.saveBeihilferegelungen();
 		
 		Antragsteller k1 = new Antragsteller(Familie.familienListe.get(0).getFamilienID(), 
 				DienstlicheDaten.dienstlicheDatenListe.get(0).getDienstlicheDatenID(),
@@ -130,38 +128,38 @@ public class Create_Data {
 		
 		Rechnungen k1 = new Rechnungen(Familie.familienListe.get(0).getFamilienID(), 
 				Rechnungssteller.rechnungsstellerListe.get(0).getRechnungsstellerID(),
-				Kostenarten.kostenartenListe.get(3).getKostenartenID(),
-				93782456, 120.45f, datum());
+				Kostenarten.kostenartenListe.get(0).getKostenartenID(),
+				93782456, 120.45f, datum(), false, false, false, false);
 		k1.insertData();
 		
 		Rechnungen k2 = new Rechnungen(Familie.familienListe.get(0).getFamilienID(), 
 				Rechnungssteller.rechnungsstellerListe.get(1).getRechnungsstellerID(),
-				Kostenarten.kostenartenListe.get(3).getKostenartenID(),
-				2347899, 41.2f, datum());
+				Kostenarten.kostenartenListe.get(0).getKostenartenID(),
+				2347899, 41.2f, datum(), false, false, false, false);
 		k2.insertData();;
 		
 		Rechnungen k3 = new Rechnungen(Familie.familienListe.get(1).getFamilienID(), 
 				Rechnungssteller.rechnungsstellerListe.get(2).getRechnungsstellerID(),
 				Kostenarten.kostenartenListe.get(2).getKostenartenID(),
-				347538, 15.2f, datum());
+				347538, 15.2f, datum(), false, false, false, false);
 		k3.insertData();
 		
 		Rechnungen k4 = new Rechnungen(Familie.familienListe.get(2).getFamilienID(), 
 				Rechnungssteller.rechnungsstellerListe.get(1).getRechnungsstellerID(),
 				Kostenarten.kostenartenListe.get(1).getKostenartenID(),
-				9238765, 31.2f, datum());
+				9238765, 31.2f, datum(), false, false, false, false);
 		k4.insertData();
 		
 		Rechnungen k5 = new Rechnungen(Familie.familienListe.get(2).getFamilienID(), 
 				Rechnungssteller.rechnungsstellerListe.get(2).getRechnungsstellerID(),
 				Kostenarten.kostenartenListe.get(1).getKostenartenID(),
-				23672683, 76.98f, datum());
+				23672683, 76.98f, datum(), false, false, false, false);
 		k5.insertData();
 	}
 	
 	@SuppressWarnings("deprecation")
-	public static Date datum(){
-		Date date = new Date(2017, (int)(Math.random() * 12), (int)(Math.random() * 32), (int)(Math.random() * 24), (int)(Math.random() * 60), (int)(Math.random() * 60));
+	public static java.sql.Date datum(){
+		java.sql.Date date = new java.sql.Date(117, (int)(Math.random() * 12), (int)(Math.random() * 32));
 		return date;
 	}
 }

@@ -14,12 +14,17 @@ public class Rechnungen {
 	private int kostenartenID;
 	private int rechnungsnummer;
 	private float betrag;
-	private Date datum;
+	private java.sql.Date datum;
+	private boolean av;
+	private boolean ab;
+	private boolean vv;
+	private boolean bv;
+	private long diffDays;
 	
 	protected static ArrayList<Rechnungen> rechnungenListe = new ArrayList<Rechnungen>();
-
+	
 	public Rechnungen(int rechnunngID, int familieID, int rechnungsstellerID, int kostenartenID, int rechnungsnummer,
-			float betrag, Date datum) {
+			float betrag, java.sql.Date datum) {
 		super();
 		this.rechnunngID = rechnunngID;
 		this.familieID = familieID;
@@ -31,7 +36,7 @@ public class Rechnungen {
 	}
 	
 	public Rechnungen(int familieID, int rechnungsstellerID, int kostenartenID, int rechnungsnummer,
-			float betrag, Date datum) {
+			float betrag, java.sql.Date datum) {
 		super();
 		this.familieID = familieID;
 		this.rechnungsstellerID = rechnungsstellerID;
@@ -39,6 +44,37 @@ public class Rechnungen {
 		this.rechnungsnummer = rechnungsnummer;
 		this.betrag = betrag;
 		this.datum = datum;
+	}
+	
+	public Rechnungen(int rechnunngID, int familieID, int rechnungsstellerID, int kostenartenID, int rechnungsnummer,
+			float betrag, java.sql.Date datum, boolean av, boolean ab, boolean vv, boolean bv) {
+		super();
+		this.rechnunngID = rechnunngID;
+		this.familieID = familieID;
+		this.rechnungsstellerID = rechnungsstellerID;
+		this.kostenartenID = kostenartenID;
+		this.rechnungsnummer = rechnungsnummer;
+		this.betrag = betrag;
+		this.datum = datum;
+		this.av = av;
+		this.ab = ab;
+		this.vv = vv;
+		this.bv = bv;
+	}
+
+	public Rechnungen(int familieID, int rechnungsstellerID, int kostenartenID, int rechnungsnummer,
+			float betrag, java.sql.Date datum, boolean av, boolean ab, boolean vv, boolean bv) {
+		super();
+		this.familieID = familieID;
+		this.rechnungsstellerID = rechnungsstellerID;
+		this.kostenartenID = kostenartenID;
+		this.rechnungsnummer = rechnungsnummer;
+		this.betrag = betrag;
+		this.datum = datum;
+		this.av = av;
+		this.ab = ab;
+		this.vv = vv;
+		this.bv = bv;
 	}
 
 	public int getRechnunngID() {
@@ -89,12 +125,54 @@ public class Rechnungen {
 		this.betrag = betrag;
 	}
 
-	public Date getDatum() {
+	public java.sql.Date getDatum() {
 		return datum;
 	}
 
-	public void setDatum(Date datum) {
+	public void setDatum(java.sql.Date datum) {
 		this.datum = datum;
+	}
+
+	public boolean isAv() {
+		return av;
+	}
+
+	public void setAv(boolean av) {
+		this.av = av;
+	}
+
+	public boolean isAb() {
+		return ab;
+	}
+
+	public void setAb(boolean ab) {
+		this.ab = ab;
+	}
+
+	public boolean isVv() {
+		return vv;
+	}
+
+	public void setVv(boolean vv) {
+		this.vv = vv;
+	}
+
+	public boolean isBv() {
+		return bv;
+	}
+
+	public void setBv(boolean bv) {
+		this.bv = bv;
+	}
+
+	public long getDiffDays() {
+		Date utilDate = new Date();
+		java.sql.Date d = new java.sql.Date(utilDate.getTime());
+		
+		long diff = d.getTime()- datum.getTime();
+	    diffDays = diff / (24 * 60 * 60 * 1000);
+	    
+		return diffDays;
 	}
 
 	public ArrayList<Rechnungen> getRechnungenListe() {
@@ -108,8 +186,8 @@ public class Rechnungen {
 		
 		try
 	    {
-			String query = " INSERT INTO Rechnungen (FamilieID, RechnungsstellerID, KostenartenID, Rechnungsnummer"
-					+ "Betrag, Datum) values (?, ?, ?, ?, ?, ?)";
+			String query = " INSERT INTO Rechnungen (FamilieID, RechnungsstellerID, KostenartenID, Rechnungsnummer,"
+					+ "Betrag, Datum, AV, AB, VV, BV) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			PreparedStatement preparedStmt = conn.prepareStatement(query);	
 
 			preparedStmt.setInt(1, familieID);
@@ -117,14 +195,18 @@ public class Rechnungen {
 			preparedStmt.setInt(3, kostenartenID);
 			preparedStmt.setInt(4, rechnungsnummer);
 			preparedStmt.setFloat(5, betrag);
-			preparedStmt.setDate(6, (java.sql.Date) datum);
+			preparedStmt.setDate(6, datum);
+			preparedStmt.setBoolean(7, av);
+			preparedStmt.setBoolean(8, ab);
+			preparedStmt.setBoolean(9, vv);
+			preparedStmt.setBoolean(10, bv);
 		      
 			preparedStmt.executeUpdate();
 			
 			System.out.println("Neuer Eintrag in " + this.getClass());
 			System.out.println("FamilieID:" + familieID + " RechnungsstellerID:" + rechnungsstellerID
 							+ " KostenartenID:" + kostenartenID + " Rechnungsnummer:" + rechnungsnummer
-							+ " Rechnungsnummer:" + rechnungsnummer);
+							+ " Betrag:" + betrag + " Datum:" + datum + " av:" + av + ", ab:" + ab + ", vv:" + vv + ", bv:" + bv);
 			
 			conn.commit();
 			preparedStmt.close();
@@ -136,11 +218,26 @@ public class Rechnungen {
 	    }		
 	}
 
+	public Boolean dateWarning() {
+		
+		Date utilDate = new Date();
+		java.sql.Date d = new java.sql.Date(utilDate.getTime());
+		
+		long diff = d.getTime()- datum.getTime();
+	    diffDays = diff / (24 * 60 * 60 * 1000);
+	     
+		if(diffDays<=30)
+			return true;
+		else
+			return false;
+	}
+	
 	@Override
 	public String toString() {
 		return "Rechnungen [rechnunngID=" + rechnunngID + ", familieID=" + familieID + ", rechnungsstellerID="
 				+ rechnungsstellerID + ", kostenartenID=" + kostenartenID + ", rechnungsnummer=" + rechnungsnummer
-				+ ", betrag=" + betrag + ", datum=" + datum.toString() + "]";
+				+ ", betrag=" + betrag + ", datum=" + datum + ", av=" + av + ", ab=" + ab + ", vv=" + vv + ", bv=" + bv
+				+ "]";
 	}
 	
 }

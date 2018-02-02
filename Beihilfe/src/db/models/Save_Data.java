@@ -9,6 +9,17 @@ public class Save_Data {
 
 	private static Connection conn = null;
 	
+	public static void saveAll(){
+		
+		saveFamilie();
+		saveRechnungssteller();
+		saveBeihilferegelungen();
+		saveKostenarten();
+		saveDienstanschrift();
+		saveDienstlicheDaten();
+		saveAntragsteller();
+		saveRechnungen();
+	}
 	public static void saveFamilie(){
 		
 		Derby_Conn dc = new Derby_Conn();
@@ -84,7 +95,7 @@ public class Save_Data {
 	    }
 	}
 	
-	public static void saveBeihilfereglungen(){
+	public static void saveBeihilferegelungen(){
 		
 		Derby_Conn dc = new Derby_Conn();
 		conn = dc.start(Derby_Conn.getStandardDB());
@@ -97,7 +108,7 @@ public class Save_Data {
 	    	rs = s.executeQuery("SELECT * FROM Beihilferegelungen ORDER BY BeihilferegelungenID");
 	    	while(rs.next()){
 	    		Beihilferegelungen.beihilferegelungenListe.add(new Beihilferegelungen(
-	    			rs.getInt("RechnungsstellerID"), 
+	    			rs.getInt("BeihilferegelungenID"), 
 	    			rs.getInt("Zeitgrenze"), 
 	    			rs.getFloat("Mindestbetrag"))); 
 
@@ -252,9 +263,12 @@ public class Save_Data {
 	    			rs.getInt("RechnungsstellerID"), 
 	    			rs.getInt("KostenartenID"),
 	    			rs.getInt("Rechnungsnummer"), 
-	    			rs.getFloat("Kennziffer"),
-	    			rs.getDate("Datum"))); 
-	    		
+	    			rs.getFloat("Betrag"),
+	    			rs.getDate("Datum"),
+	    			rs.getBoolean("AV"),
+	    			rs.getBoolean("AB"),
+	    			rs.getBoolean("VV"),
+	    			rs.getBoolean("BV")));
 	    	}
 	    	conn.commit();
 	    	rs.close();
