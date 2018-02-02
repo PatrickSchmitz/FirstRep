@@ -9,6 +9,17 @@ public class Save_Data {
 
 	private static Connection conn = null;
 	
+	public static void saveAll(){
+		
+		saveFamilie();
+		saveRechnungssteller();
+		saveBeihilferegelungen();
+		saveKostenarten();
+		saveDienstanschrift();
+		saveDienstlicheDaten();
+		saveAntragsteller();
+		saveRechnungen();
+	}
 	public static void saveFamilie(){
 		
 		Derby_Conn dc = new Derby_Conn();
@@ -84,7 +95,7 @@ public class Save_Data {
 	    }
 	}
 	
-	public static void saveBeihilfereglungen(){
+	public static void saveBeihilferegelungen(){
 		
 		Derby_Conn dc = new Derby_Conn();
 		conn = dc.start(Derby_Conn.getStandardDB());

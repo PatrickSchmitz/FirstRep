@@ -29,14 +29,14 @@ public class Create_Data {
 	
 	public static void bspDaten() {
 		
-		Save_Data.saveFamilie();
-		Save_Data.saveRechnungssteller();
-		Save_Data.saveKostenarten();
-		Save_Data.saveBeihilfereglungen();
-		Save_Data.saveDienstanschrift();
-		Save_Data.saveDienstlicheDaten();
-		Save_Data.saveAntragsteller();
-		Save_Data.saveRechnungen();
+		bspDatenFamilie();
+		bspDatenRechnungssteller();
+		bspDatenKostenarten();
+		bspDatenBeihilferegelungen();
+		bspDatenDienstanschrift();
+		bspDatenDienstlicheDaten();
+		bspDatenAntragsteller();
+		bspDatenRechnungen();
 	}
 	
 	public static void bspDatenFamilie() {
@@ -104,7 +104,7 @@ public class Create_Data {
 		
 		Save_Data.saveFamilie();
 		Save_Data.saveDienstlicheDaten();
-		Save_Data.saveBeihilfereglungen();
+		Save_Data.saveBeihilferegelungen();
 		
 		Antragsteller k1 = new Antragsteller(Familie.familienListe.get(0).getFamilienID(), 
 				DienstlicheDaten.dienstlicheDatenListe.get(0).getDienstlicheDatenID(),
