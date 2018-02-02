@@ -1,7 +1,5 @@
 package db.models;
 
-import java.util.Date;
-
 public class Create_Data {
 	
 
@@ -130,13 +128,13 @@ public class Create_Data {
 		
 		Rechnungen k1 = new Rechnungen(Familie.familienListe.get(0).getFamilienID(), 
 				Rechnungssteller.rechnungsstellerListe.get(0).getRechnungsstellerID(),
-				Kostenarten.kostenartenListe.get(3).getKostenartenID(),
+				Kostenarten.kostenartenListe.get(0).getKostenartenID(),
 				93782456, 120.45f, datum());
 		k1.insertData();
 		
 		Rechnungen k2 = new Rechnungen(Familie.familienListe.get(0).getFamilienID(), 
 				Rechnungssteller.rechnungsstellerListe.get(1).getRechnungsstellerID(),
-				Kostenarten.kostenartenListe.get(3).getKostenartenID(),
+				Kostenarten.kostenartenListe.get(0).getKostenartenID(),
 				2347899, 41.2f, datum());
 		k2.insertData();;
 		
@@ -160,8 +158,8 @@ public class Create_Data {
 	}
 	
 	@SuppressWarnings("deprecation")
-	public static Date datum(){
-		Date date = new Date(2017, (int)(Math.random() * 12), (int)(Math.random() * 32), (int)(Math.random() * 24), (int)(Math.random() * 60), (int)(Math.random() * 60));
+	public static java.sql.Date datum(){
+		java.sql.Date date = new java.sql.Date(2017, (int)(Math.random() * 12), (int)(Math.random() * 32));
 		return date;
 	}
 }

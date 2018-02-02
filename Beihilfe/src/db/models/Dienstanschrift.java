@@ -116,7 +116,7 @@ public class Dienstanschrift {
 			preparedStmt.setString	(3, strasse);
 			preparedStmt.setInt (4, hausnummer);
 			preparedStmt.setString (5, stadt);
-			preparedStmt.setInt (5, plz);
+			preparedStmt.setInt (6, plz);
 		      
 			preparedStmt.executeUpdate();
 			System.out.println("Neuer Eintrag in " + this.getClass());

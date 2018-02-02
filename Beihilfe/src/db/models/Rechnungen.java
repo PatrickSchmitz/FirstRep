@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Rechnungen {
 
@@ -14,7 +13,7 @@ public class Rechnungen {
 	private int kostenartenID;
 	private int rechnungsnummer;
 	private float betrag;
-	private Date datum;
+	private java.sql.Date datum;
 	private boolean av;
 	private boolean ab;
 	private boolean vv;
@@ -23,7 +22,7 @@ public class Rechnungen {
 	protected static ArrayList<Rechnungen> rechnungenListe = new ArrayList<Rechnungen>();
 
 	public Rechnungen(int rechnunngID, int familieID, int rechnungsstellerID, int kostenartenID, int rechnungsnummer,
-			float betrag, Date datum) {
+			float betrag, java.sql.Date datum) {
 		super();
 		this.rechnunngID = rechnunngID;
 		this.familieID = familieID;
@@ -39,7 +38,7 @@ public class Rechnungen {
 	}
 	
 	public Rechnungen(int familieID, int rechnungsstellerID, int kostenartenID, int rechnungsnummer,
-			float betrag, Date datum) {
+			float betrag, java.sql.Date datum) {
 		super();
 		this.familieID = familieID;
 		this.rechnungsstellerID = rechnungsstellerID;
@@ -101,11 +100,11 @@ public class Rechnungen {
 		this.betrag = betrag;
 	}
 
-	public Date getDatum() {
+	public java.sql.Date getDatum() {
 		return datum;
 	}
 
-	public void setDatum(Date datum) {
+	public void setDatum(java.sql.Date datum) {
 		this.datum = datum;
 	}
 
@@ -152,7 +151,7 @@ public class Rechnungen {
 		
 		try
 	    {
-			String query = " INSERT INTO Rechnungen (FamilieID, RechnungsstellerID, KostenartenID, Rechnungsnummer"
+			String query = " INSERT INTO Rechnungen (FamilieID, RechnungsstellerID, KostenartenID, Rechnungsnummer,"
 					+ "Betrag, Datum, AV, AB, VV, BV) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			PreparedStatement preparedStmt = conn.prepareStatement(query);	
 
@@ -161,7 +160,7 @@ public class Rechnungen {
 			preparedStmt.setInt(3, kostenartenID);
 			preparedStmt.setInt(4, rechnungsnummer);
 			preparedStmt.setFloat(5, betrag);
-			preparedStmt.setDate(6, (java.sql.Date) datum);
+			preparedStmt.setDate(6, datum);
 			preparedStmt.setBoolean(7, av);
 			preparedStmt.setBoolean(8, ab);
 			preparedStmt.setBoolean(9, vv);
@@ -172,7 +171,7 @@ public class Rechnungen {
 			System.out.println("Neuer Eintrag in " + this.getClass());
 			System.out.println("FamilieID:" + familieID + " RechnungsstellerID:" + rechnungsstellerID
 							+ " KostenartenID:" + kostenartenID + " Rechnungsnummer:" + rechnungsnummer
-							+ " Rechnungsnummer:" + rechnungsnummer + "av:" + av + ", ab:" + ab + ", vv:" + vv + ", bv:" + bv);
+							+ " Betrag:" + betrag + " Datum:" + datum + " av:" + av + ", ab:" + ab + ", vv:" + vv + ", bv:" + bv);
 			
 			conn.commit();
 			preparedStmt.close();

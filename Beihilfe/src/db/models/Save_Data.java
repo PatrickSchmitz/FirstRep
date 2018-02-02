@@ -108,7 +108,7 @@ public class Save_Data {
 	    	rs = s.executeQuery("SELECT * FROM Beihilferegelungen ORDER BY BeihilferegelungenID");
 	    	while(rs.next()){
 	    		Beihilferegelungen.beihilferegelungenListe.add(new Beihilferegelungen(
-	    			rs.getInt("RechnungsstellerID"), 
+	    			rs.getInt("BeihilferegelungenID"), 
 	    			rs.getInt("Zeitgrenze"), 
 	    			rs.getFloat("Mindestbetrag"))); 
 
@@ -263,7 +263,7 @@ public class Save_Data {
 	    			rs.getInt("RechnungsstellerID"), 
 	    			rs.getInt("KostenartenID"),
 	    			rs.getInt("Rechnungsnummer"), 
-	    			rs.getFloat("Kennziffer"),
+	    			rs.getFloat("Betrag"),
 	    			rs.getDate("Datum"))); 
 	    		
 	    	}
