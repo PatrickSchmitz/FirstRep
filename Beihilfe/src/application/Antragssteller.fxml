@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane minHeight="600.0" minWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141">
+   <children>
+      <Label layoutX="31.0" layoutY="35.0" text="Antragssteller">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="43.0" layoutY="90.0" text="Name" />
+      <Label layoutX="43.0" layoutY="120.0" text="Vorname" />
+      <Label layoutX="43.0" layoutY="208.0" text="Privatanschrift">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="43.0" layoutY="246.0" text="Telefon" />
+      <Label layoutX="43.0" layoutY="276.0" text="PLZ und Ort" />
+      <Label layoutX="43.0" layoutY="307.0" text="Straße und Nr." />
+      <Label layoutX="298.0" layoutY="50.0" text="dienstliche Daten">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="298.0" layoutY="210.0" text="FamilienID" />
+      <Label layoutX="298.0" layoutY="90.0" text="Kennziffer" />
+      <Label layoutX="298.0" layoutY="120.0" text="Amtsbezeichnung" />
+      <Label layoutX="298.0" layoutY="150.0" text="Vergütungsgruppe" />
+      <Label layoutX="298.0" layoutY="180.0" text="Dienstanschrift" />
+      <Label layoutX="298.0" layoutY="348.0" text="Behilferegelungen">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="298.0" layoutY="388.0" text="Zeitgrenze" />
+      <Label layoutX="298.0" layoutY="418.0" text="Mindestbetrag" />
+      <TextField layoutX="100.0" layoutY="85.0" prefHeight="27.0" prefWidth="140.0" />
+      <TextField layoutX="100.0" layoutY="115.0" prefHeight="27.0" prefWidth="140.0" />
+      <TextField layoutX="143.0" layoutY="241.0" prefHeight="27.0" prefWidth="105.0" />
+      <TextField layoutX="143.0" layoutY="271.0" prefHeight="27.0" prefWidth="105.0" />
+      <TextField layoutX="143.0" layoutY="302.0" prefHeight="27.0" prefWidth="105.0" />
+      <TextField layoutX="419.0" layoutY="85.0" prefHeight="27.0" prefWidth="140.0" />
+      <TextField layoutX="419.0" layoutY="115.0" prefHeight="27.0" prefWidth="140.0" />
+      <TextField layoutX="419.0" layoutY="145.0" prefHeight="27.0" prefWidth="140.0" />
+      <TextField layoutX="419.0" layoutY="175.0" prefHeight="27.0" prefWidth="140.0" />
+      <TextField layoutX="419.0" layoutY="206.0" prefHeight="27.0" prefWidth="140.0" />
+      <TextField layoutX="419.0" layoutY="383.0" prefHeight="27.0" prefWidth="140.0" />
+      <TextField layoutX="419.0" layoutY="413.0" prefHeight="27.0" prefWidth="140.0" />
+   </children>
+</AnchorPane>
