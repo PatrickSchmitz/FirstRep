@@ -51,7 +51,7 @@
       <DatePicker layoutX="507.0" layoutY="509.0" />
       <DatePicker layoutX="507.0" layoutY="545.0" />
       <Label layoutX="411.0" layoutY="201.0" text="bis" />
-      <Button layoutX="507.0" layoutY="608.0" mnemonicParsing="false" text="Rechnung hinzufügen" />
+      <Button fx:id="Rechnunghinzu" layoutX="507.0" layoutY="608.0" mnemonicParsing="false" onAction="#Rechnunghinzu" text="Rechnung hinzufügen" />
       <Label layoutX="102.0" layoutY="514.0" text="Erstattung" />
       <Label layoutX="170.0" layoutY="542.0" text="Versicherung " />
       <Label layoutX="274.0" layoutY="542.0" text="Beihilfe" />

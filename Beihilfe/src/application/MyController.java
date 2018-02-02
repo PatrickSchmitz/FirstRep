@@ -26,8 +26,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 
-
-
 public class MyController {
 	
 	 @FXML
@@ -42,8 +40,8 @@ public class MyController {
 	/**Für die Elemente, auf die der Controller zugreifen soll
 	//und für die Implementierungen vom Handler muss eine @FXML-Annotation verwendet werden.
 	@FXML
-	//Einfaches ActionEvent handling, bei einem Button
-	Öffnet in diesem Fall eine neue FXML Datei 
+	 * Login Bildschirm, gibt eine Information wenn Benutzer und Passwort richtig eingegeben werden und öffnet die Hauptansicht.
+	 * Sonst erscheint eine Warnung, dass ein falscher Benutzername oder ein falsches Passwort eingegben wurde. 
 	**/
 	@FXML
 	public void anmelden(ActionEvent anmeldebutton) throws Exception {               
@@ -121,6 +119,22 @@ public class MyController {
           }
 	}
 	@FXML
+	//Einfaches ActionEvent handling, bei einem Button
+	//Öffnet in diesem Fall eine neue FXML Datei 
+	
+	public void antragssteller(ActionEvent antragssteller) throws Exception {               
+        try {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/application/Antragssteller.fxml"));
+                Parent root1 = (Parent) fxmlLoader.load();
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root1));  
+                stage.show();
+        } catch(Exception e) {
+           e.printStackTrace();
+          }
+	}
+	
+	@FXML
 	public void aerzte(ActionEvent rechnungsaussteller) throws Exception {               
         try {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/application/Rechnungsaussteller.fxml"));
@@ -187,11 +201,42 @@ public class MyController {
 	        
 	        tableRechnung.setItems(null);
 	        tableRechnung.setItems(data);
+	        {
+	    	 	Alert alert = new Alert(AlertType.WARNING);
+	    		alert.setTitle("Rechnungen laden");
+	    		alert.setContentText("Laden der Rechnungen von der Datenbank fehlgeschlagen");
+	    		alert.showAndWait();
+	    	 }
 
 	    }
-	    
-
+	 
+	 
+	 @FXML
+	 public void hinzufuegenmitglied(ActionEvent hinzufuegmitglied)
+	 {
+	 	Alert alert = new Alert(AlertType.WARNING);
+		alert.setTitle("Familienmitglied hinzufügen");
+		alert.setContentText("Familienmitglied wurde aufgrund eines Fehlers nicht hizugefügt");
+		alert.showAndWait();
+	 }
+	 
+	 
+	 @FXML
+	 public void Rechnunghinzu(ActionEvent Rechnunghinzu)
+	 {
+	 	Alert alert = new Alert(AlertType.WARNING);
+		alert.setTitle("Rechnung hinzufügen");
+		alert.setContentText("Die Rechnung konnte  aufgrund eines Fehlers nicht zur Datenbank hinzugefügt werden");
+		alert.showAndWait();
+	 }
 	
-	
+	 @FXML
+	 public void Ausstellerhinzu(ActionEvent Ausstellerhinzu)
+	 {
+	 	Alert alert = new Alert(AlertType.WARNING);
+		alert.setTitle("Aussteller hinzufügen");
+		alert.setContentText("Der Aussteller konnte  aufgrund eines Fehlers nicht zur Datenbank hinzugefügt werden");
+		alert.showAndWait();
+	 }
 }
 
