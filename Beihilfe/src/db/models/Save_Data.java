@@ -264,11 +264,11 @@ public class Save_Data {
 	    			rs.getInt("KostenartenID"),
 	    			rs.getInt("Rechnungsnummer"), 
 	    			rs.getFloat("Betrag"),
-	    			rs.getDate("Datum"))); 
-	    			rs.getBoolean("AV");
-	    			rs.getBoolean("AB");
-	    			rs.getBoolean("VV");
-	    			rs.getBoolean("BV");
+	    			rs.getDate("Datum"),
+	    			rs.getBoolean("AV"),
+	    			rs.getBoolean("AB"),
+	    			rs.getBoolean("VV"),
+	    			rs.getBoolean("BV")));
 	    	}
 	    	conn.commit();
 	    	rs.close();

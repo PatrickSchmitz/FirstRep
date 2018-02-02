@@ -22,7 +22,7 @@ public class Rechnungen {
 	private long diffDays;
 	
 	protected static ArrayList<Rechnungen> rechnungenListe = new ArrayList<Rechnungen>();
-
+	
 	public Rechnungen(int rechnunngID, int familieID, int rechnungsstellerID, int kostenartenID, int rechnungsnummer,
 			float betrag, java.sql.Date datum) {
 		super();
@@ -33,10 +33,17 @@ public class Rechnungen {
 		this.rechnungsnummer = rechnungsnummer;
 		this.betrag = betrag;
 		this.datum = datum;
-		this.av = false;
-		this.ab = false;
-		this.vv = false;
-		this.bv = false;
+	}
+	
+	public Rechnungen(int familieID, int rechnungsstellerID, int kostenartenID, int rechnungsnummer,
+			float betrag, java.sql.Date datum) {
+		super();
+		this.familieID = familieID;
+		this.rechnungsstellerID = rechnungsstellerID;
+		this.kostenartenID = kostenartenID;
+		this.rechnungsnummer = rechnungsnummer;
+		this.betrag = betrag;
+		this.datum = datum;
 	}
 	
 	public Rechnungen(int rechnunngID, int familieID, int rechnungsstellerID, int kostenartenID, int rechnungsnummer,
@@ -56,7 +63,7 @@ public class Rechnungen {
 	}
 
 	public Rechnungen(int familieID, int rechnungsstellerID, int kostenartenID, int rechnungsnummer,
-			float betrag, java.sql.Date datum) {
+			float betrag, java.sql.Date datum, boolean av, boolean ab, boolean vv, boolean bv) {
 		super();
 		this.familieID = familieID;
 		this.rechnungsstellerID = rechnungsstellerID;
@@ -64,10 +71,10 @@ public class Rechnungen {
 		this.rechnungsnummer = rechnungsnummer;
 		this.betrag = betrag;
 		this.datum = datum;
-		this.av = false;
-		this.ab = false;
-		this.vv = false;
-		this.bv = false;
+		this.av = av;
+		this.ab = ab;
+		this.vv = vv;
+		this.bv = bv;
 	}
 
 	public int getRechnunngID() {

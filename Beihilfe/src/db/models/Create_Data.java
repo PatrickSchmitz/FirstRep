@@ -129,31 +129,31 @@ public class Create_Data {
 		Rechnungen k1 = new Rechnungen(Familie.familienListe.get(0).getFamilienID(), 
 				Rechnungssteller.rechnungsstellerListe.get(0).getRechnungsstellerID(),
 				Kostenarten.kostenartenListe.get(0).getKostenartenID(),
-				93782456, 120.45f, datum());
+				93782456, 120.45f, datum(), false, false, false, false);
 		k1.insertData();
 		
 		Rechnungen k2 = new Rechnungen(Familie.familienListe.get(0).getFamilienID(), 
 				Rechnungssteller.rechnungsstellerListe.get(1).getRechnungsstellerID(),
 				Kostenarten.kostenartenListe.get(0).getKostenartenID(),
-				2347899, 41.2f, datum());
+				2347899, 41.2f, datum(), false, false, false, false);
 		k2.insertData();;
 		
 		Rechnungen k3 = new Rechnungen(Familie.familienListe.get(1).getFamilienID(), 
 				Rechnungssteller.rechnungsstellerListe.get(2).getRechnungsstellerID(),
 				Kostenarten.kostenartenListe.get(2).getKostenartenID(),
-				347538, 15.2f, datum());
+				347538, 15.2f, datum(), false, false, false, false);
 		k3.insertData();
 		
 		Rechnungen k4 = new Rechnungen(Familie.familienListe.get(2).getFamilienID(), 
 				Rechnungssteller.rechnungsstellerListe.get(1).getRechnungsstellerID(),
 				Kostenarten.kostenartenListe.get(1).getKostenartenID(),
-				9238765, 31.2f, datum());
+				9238765, 31.2f, datum(), false, false, false, false);
 		k4.insertData();
 		
 		Rechnungen k5 = new Rechnungen(Familie.familienListe.get(2).getFamilienID(), 
 				Rechnungssteller.rechnungsstellerListe.get(2).getRechnungsstellerID(),
 				Kostenarten.kostenartenListe.get(1).getKostenartenID(),
-				23672683, 76.98f, datum());
+				23672683, 76.98f, datum(), false, false, false, false);
 		k5.insertData();
 	}
 	
