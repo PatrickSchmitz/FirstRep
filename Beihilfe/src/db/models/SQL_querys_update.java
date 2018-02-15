@@ -144,14 +144,14 @@ public class SQL_querys_update {
 	    }
 	}
 	
-	public static void BV_True(int rechnungID) {
+	public static void VB_True(int rechnungID) {
 		
 		Derby_Conn dc = new Derby_Conn();
 		Connection conn = dc.start(Derby_Conn.getStandardDB());
 		
 		try
 	    {
-			String query = "UPDATE Rechnungen SET BV=? WHERE RechnungenID=?";
+			String query = "UPDATE Rechnungen SET VB=? WHERE RechnungenID=?";
 			PreparedStatement preparedStmt = conn.prepareStatement(query);
 			
 			preparedStmt.setBoolean(1, true);
@@ -167,14 +167,14 @@ public class SQL_querys_update {
 	    }
 	}
 	
-	public static void BV_False(int rechnungID) {
+	public static void VB_False(int rechnungID) {
 		
 		Derby_Conn dc = new Derby_Conn();
 		Connection conn = dc.start(Derby_Conn.getStandardDB());
 		
 		try
 	    {
-			String query = "UPDATE Rechnungen SET BV=? WHERE RechnungenID=?";
+			String query = "UPDATE Rechnungen SET VB=? WHERE RechnungenID=?";
 			PreparedStatement preparedStmt = conn.prepareStatement(query);
 			
 			preparedStmt.setBoolean(1, false);

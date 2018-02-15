@@ -18,11 +18,11 @@ public class Rechnungen {
 	private boolean av;
 	private boolean ab;
 	private boolean vv;
-	private boolean bv;
+	private boolean vb;
 	private long diffDays;
 	
 	protected static ArrayList<Rechnungen> rechnungenListe = new ArrayList<Rechnungen>();
-	
+	 
 	public Rechnungen(int rechnunngID, int familieID, int rechnungsstellerID, int kostenartenID, int rechnungsnummer,
 			float betrag, java.sql.Date datum) {
 		super();
@@ -47,7 +47,7 @@ public class Rechnungen {
 	}
 	
 	public Rechnungen(int rechnunngID, int familieID, int rechnungsstellerID, int kostenartenID, int rechnungsnummer,
-			float betrag, java.sql.Date datum, boolean av, boolean ab, boolean vv, boolean bv) {
+			float betrag, java.sql.Date datum, boolean av, boolean ab, boolean vv, boolean vb) {
 		super();
 		this.rechnunngID = rechnunngID;
 		this.familieID = familieID;
@@ -59,11 +59,11 @@ public class Rechnungen {
 		this.av = av;
 		this.ab = ab;
 		this.vv = vv;
-		this.bv = bv;
+		this.vb = vb;
 	}
 
 	public Rechnungen(int familieID, int rechnungsstellerID, int kostenartenID, int rechnungsnummer,
-			float betrag, java.sql.Date datum, boolean av, boolean ab, boolean vv, boolean bv) {
+			float betrag, java.sql.Date datum, boolean av, boolean ab, boolean vv, boolean vb) {
 		super();
 		this.familieID = familieID;
 		this.rechnungsstellerID = rechnungsstellerID;
@@ -74,7 +74,7 @@ public class Rechnungen {
 		this.av = av;
 		this.ab = ab;
 		this.vv = vv;
-		this.bv = bv;
+		this.vb = vb;
 	}
 
 	public int getRechnunngID() {
@@ -157,12 +157,12 @@ public class Rechnungen {
 		this.vv = vv;
 	}
 
-	public boolean isBv() {
-		return bv;
+	public boolean isVb() {
+		return vb;
 	}
 
-	public void setBv(boolean bv) {
-		this.bv = bv;
+	public void setVb(boolean vb) {
+		this.vb = vb;
 	}
 
 	public long getDiffDays() {
@@ -187,7 +187,7 @@ public class Rechnungen {
 		try
 	    {
 			String query = " INSERT INTO Rechnungen (FamilieID, RechnungsstellerID, KostenartenID, Rechnungsnummer,"
-					+ "Betrag, Datum, AV, AB, VV, BV) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+					+ "Betrag, Datum, AV, AB, VV, VB) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			PreparedStatement preparedStmt = conn.prepareStatement(query);	
 
 			preparedStmt.setInt(1, familieID);
@@ -199,14 +199,14 @@ public class Rechnungen {
 			preparedStmt.setBoolean(7, av);
 			preparedStmt.setBoolean(8, ab);
 			preparedStmt.setBoolean(9, vv);
-			preparedStmt.setBoolean(10, bv);
+			preparedStmt.setBoolean(10, vb);
 		      
 			preparedStmt.executeUpdate();
 			
 			System.out.println("Neuer Eintrag in " + this.getClass());
 			System.out.println("FamilieID:" + familieID + " RechnungsstellerID:" + rechnungsstellerID
 							+ " KostenartenID:" + kostenartenID + " Rechnungsnummer:" + rechnungsnummer
-							+ " Betrag:" + betrag + " Datum:" + datum + " av:" + av + ", ab:" + ab + ", vv:" + vv + ", bv:" + bv);
+							+ " Betrag:" + betrag + " Datum:" + datum + " av:" + av + ", ab:" + ab + ", vv:" + vv + ", vb:" + vb);
 			
 			conn.commit();
 			preparedStmt.close();
@@ -236,7 +236,7 @@ public class Rechnungen {
 	public String toString() {
 		return "Rechnungen [rechnunngID=" + rechnunngID + ", familieID=" + familieID + ", rechnungsstellerID="
 				+ rechnungsstellerID + ", kostenartenID=" + kostenartenID + ", rechnungsnummer=" + rechnungsnummer
-				+ ", betrag=" + betrag + ", datum=" + datum + ", av=" + av + ", ab=" + ab + ", vv=" + vv + ", bv=" + bv
+				+ ", betrag=" + betrag + ", datum=" + datum + ", av=" + av + ", ab=" + ab + ", vv=" + vv + ", vb=" + vb
 				+ "]";
 	}
 	

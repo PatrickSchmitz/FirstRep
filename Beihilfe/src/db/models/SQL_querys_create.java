@@ -79,7 +79,7 @@ public class SQL_querys_create {
 			"AV BOOLEAN NOT NULL, " +
 			"AB BOOLEAN NOT NULL, " +
 			"VV BOOLEAN NOT NULL, " +
-			"BV BOOLEAN NOT NULL, " +
+			"VB BOOLEAN NOT NULL, " +
 			"PRIMARY KEY(RechnungenID))");
 
 	public String getCreateFamilie() {
