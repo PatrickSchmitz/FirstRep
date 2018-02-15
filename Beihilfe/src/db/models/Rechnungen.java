@@ -8,7 +8,7 @@ import java.util.Date;
 
 public class Rechnungen {
 
-	private int rechnunngID;
+	private int rechnungID;
 	private int familieID;
 	private int rechnungsstellerID;
 	private int kostenartenID;
@@ -19,14 +19,16 @@ public class Rechnungen {
 	private boolean ab;
 	private boolean vv;
 	private boolean vb;
-	private long diffDays;
+	/**diffDays ist die Differenz des Datums der Rechnung
+	 * und dem Heutigen Tag.*/
+	private long diffDays; 
 	
 	protected static ArrayList<Rechnungen> rechnungenListe = new ArrayList<Rechnungen>();
 	 
-	public Rechnungen(int rechnunngID, int familieID, int rechnungsstellerID, int kostenartenID, int rechnungsnummer,
+	public Rechnungen(int rechnungID, int familieID, int rechnungsstellerID, int kostenartenID, int rechnungsnummer,
 			float betrag, java.sql.Date datum) {
 		super();
-		this.rechnunngID = rechnunngID;
+		this.rechnungID = rechnungID;
 		this.familieID = familieID;
 		this.rechnungsstellerID = rechnungsstellerID;
 		this.kostenartenID = kostenartenID;
@@ -46,10 +48,10 @@ public class Rechnungen {
 		this.datum = datum;
 	}
 	
-	public Rechnungen(int rechnunngID, int familieID, int rechnungsstellerID, int kostenartenID, int rechnungsnummer,
+	public Rechnungen(int rechnungID, int familieID, int rechnungsstellerID, int kostenartenID, int rechnungsnummer,
 			float betrag, java.sql.Date datum, boolean av, boolean ab, boolean vv, boolean vb) {
 		super();
-		this.rechnunngID = rechnunngID;
+		this.rechnungID = rechnungID;
 		this.familieID = familieID;
 		this.rechnungsstellerID = rechnungsstellerID;
 		this.kostenartenID = kostenartenID;
@@ -77,12 +79,12 @@ public class Rechnungen {
 		this.vb = vb;
 	}
 
-	public int getRechnunngID() {
-		return rechnunngID;
+	public int getRechnungID() {
+		return rechnungID;
 	}
 
-	public void setRechnunngID(int rechnunngID) {
-		this.rechnunngID = rechnunngID;
+	public void setRechnungID(int rechnungID) {
+		this.rechnungID = rechnungID;
 	}
 
 	public int getFamilieID() {
@@ -179,6 +181,7 @@ public class Rechnungen {
 		return rechnungenListe;
 	}
 	
+	/**Speichert ein Element der Klasse Rechnung in der Datenbank.*/
 	public void insertData() {
 		
 		Derby_Conn dc = new Derby_Conn();
@@ -218,6 +221,7 @@ public class Rechnungen {
 	    }		
 	}
 
+	/**Warnt vor noch nicht bezahlten Rechnungen*/
 	public Boolean dateWarning() {
 		
 		Date utilDate = new Date();
@@ -232,9 +236,25 @@ public class Rechnungen {
 			return false;
 	}
 	
+	/**Prueft das Datum der Rechnung.
+	 * Falls diese aelter als 5 Jahre(1825 Tage) ist, 
+	 * wird sie geloescht.*/
+	public void archivierungsTest() {
+		
+		Date utilDate = new Date();
+		java.sql.Date d = new java.sql.Date(utilDate.getTime());
+		
+		long diff = d.getTime()- datum.getTime();
+	    diffDays = diff / (24 * 60 * 60 * 1000);
+	     
+		if(diffDays<=1825)
+			SQL_querys_delete.deleteRechnung(this.rechnungID);
+		
+	}
+	
 	@Override
 	public String toString() {
-		return "Rechnungen [rechnunngID=" + rechnunngID + ", familieID=" + familieID + ", rechnungsstellerID="
+		return "Rechnungen [rechnungID=" + rechnungID + ", familieID=" + familieID + ", rechnungsstellerID="
 				+ rechnungsstellerID + ", kostenartenID=" + kostenartenID + ", rechnungsnummer=" + rechnungsnummer
 				+ ", betrag=" + betrag + ", datum=" + datum + ", av=" + av + ", ab=" + ab + ", vv=" + vv + ", vb=" + vb
 				+ "]";
