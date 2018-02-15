@@ -18,6 +18,7 @@ public class SQL_querys_update {
 			
 			preparedStmt.setBoolean(1, true);
 			preparedStmt.setInt(2, rechnungID);
+			preparedStmt.executeUpdate();
 			
 			conn.commit();
 			preparedStmt.close();
@@ -41,6 +42,7 @@ public class SQL_querys_update {
 			
 			preparedStmt.setBoolean(1, false);
 			preparedStmt.setInt(2, rechnungID);
+			preparedStmt.executeUpdate();
 			
 			conn.commit();
 			preparedStmt.close();
@@ -64,6 +66,7 @@ public class SQL_querys_update {
 			
 			preparedStmt.setBoolean(1, true);
 			preparedStmt.setInt(2, rechnungID);
+			preparedStmt.executeUpdate();
 			
 			conn.commit();
 			preparedStmt.close();
@@ -87,6 +90,7 @@ public class SQL_querys_update {
 			
 			preparedStmt.setBoolean(1, false);
 			preparedStmt.setInt(2, rechnungID);
+			preparedStmt.executeUpdate();
 			
 			conn.commit();
 			preparedStmt.close();
@@ -110,6 +114,7 @@ public class SQL_querys_update {
 			
 			preparedStmt.setBoolean(1, true);
 			preparedStmt.setInt(2, rechnungID);
+			preparedStmt.executeUpdate();
 			
 			conn.commit();
 			preparedStmt.close();
@@ -133,6 +138,7 @@ public class SQL_querys_update {
 			
 			preparedStmt.setBoolean(1, false);
 			preparedStmt.setInt(2, rechnungID);
+			preparedStmt.executeUpdate();
 			
 			conn.commit();
 			preparedStmt.close();
@@ -156,6 +162,7 @@ public class SQL_querys_update {
 			
 			preparedStmt.setBoolean(1, true);
 			preparedStmt.setInt(2, rechnungID);
+			preparedStmt.executeUpdate();
 			
 			conn.commit();
 			preparedStmt.close();
@@ -179,6 +186,7 @@ public class SQL_querys_update {
 			
 			preparedStmt.setBoolean(1, false);
 			preparedStmt.setInt(2, rechnungID);
+			preparedStmt.executeUpdate();
 			
 			conn.commit();
 			preparedStmt.close();
