@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+/**Klasse Beihilferegelungen für die Tabelle der Datenbank*/
 public class Beihilferegelungen {
 	
 	
@@ -12,6 +13,7 @@ public class Beihilferegelungen {
 	private int zeitgenze; 				// in Tagen
 	private float mindestbetrag;		// in Euro(€)
 	
+	/**In der Liste beihilferegelungenListe stehen alle Einträge der Tabelle Beihilferegelungen.*/
 	protected static ArrayList<Beihilferegelungen> beihilferegelungenListe = new ArrayList<Beihilferegelungen>();
 	
 	public Beihilferegelungen(int beihilfereglungenID, int zeitgenze, float mindestbetrag) {
@@ -55,6 +57,7 @@ public class Beihilferegelungen {
 		return beihilferegelungenListe;
 	}
 	
+	/**Speichert ein Element der Klasse Beihilferegelungen in die Tabelle der Datenbank.*/
 	public void insertData() {
 		
 		Derby_Conn dc = new Derby_Conn();

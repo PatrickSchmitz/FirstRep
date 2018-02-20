@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+/**Alle SQL Befehle zum aendern von Eintraegen in den Tabellen.*/
 public class SQL_querys_update {
 
 	public static void AV_True(int rechnungID) {

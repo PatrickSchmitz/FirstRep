@@ -5,11 +5,13 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+/**Klasse Kostenarten für die Tabelle der Datenbank*/
 public class Kostenarten {
 
 	private int kostenartenID;
 	private String kostenName;
 	
+	/**In der Liste kostenartenListe stehen alle Einträge der Tabelle Kostenarten.*/
 	protected static ArrayList<Kostenarten> kostenartenListe = new ArrayList<Kostenarten>();
 	
 	public Kostenarten(int kostenartenID, String kostenName) {
@@ -43,6 +45,7 @@ public class Kostenarten {
 		return kostenartenListe;
 	}
 	
+	/**Speichert ein Element der Klasse Kostenarten in die Tabelle der Datenbank.*/
 	public void insertData() {
 		
 		Derby_Conn dc = new Derby_Conn();

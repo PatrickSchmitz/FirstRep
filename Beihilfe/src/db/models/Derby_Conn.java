@@ -10,14 +10,16 @@ public class Derby_Conn {
 	private static String framework = "embedded";
 	private static String protocol = "jdbc:derby:";
 	private static Connection conn = null;
+	/**Name der standartmaessigen Datenbank.*/
 	private static String standardDB = "BeihilfeDB";
 	
+	/**Erstellt eine Verbindung zur Datenbank.*/
 	public Connection start(String dbName){
 		try
 		{
 			conn = DriverManager.getConnection(protocol + dbName);
 			/**Da Transaktionen manuell kontrolliert werden sollen, wird
-			 * AutoCommit deaktiviert. AutoCommit ist bei JDBC standartm��ig aktiviert.*/
+			 * AutoCommit deaktiviert. AutoCommit ist bei JDBC standartmaessig aktiviert.*/
 			conn.setAutoCommit(false);
 			
 			return conn;
@@ -30,6 +32,7 @@ public class Derby_Conn {
 		return conn;
 	}
 	
+	/**Beendet die Verbindung zur Datenbank.*/
 	public void close(Connection closeConn){
 		if (framework.equals("embedded"))
         {
@@ -68,6 +71,7 @@ public class Derby_Conn {
         }
 	}
 	
+	/**Erstellt eine neue Datenbank.*/
 	public void create(String dbName){
 		try
 		{
@@ -112,6 +116,7 @@ public class Derby_Conn {
 	    }
 	}
 	
+	/**Loescht die Datenbank.*/
 	public void delete(String dbName){
 		try
 		{
@@ -154,6 +159,7 @@ public class Derby_Conn {
 	    }
 	}
 	
+	/**Es wird eine Fehlermeldung auf der Konsole ausgegeben.*/
 	public void printSQLException(SQLException e)
 	 {
 	     /** Fehler und deren Gr�nde werden angezeigt.*/

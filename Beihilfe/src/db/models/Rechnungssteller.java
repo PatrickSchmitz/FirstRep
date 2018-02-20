@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+/**Klasse rechnungssteller für die Tabelle der Datenbank*/
 public class Rechnungssteller {
 
 	private int rechnungsstellerID;
@@ -22,6 +23,7 @@ public class Rechnungssteller {
 	private int entfernung;				// in Kilometern(km)
 	private float kostenOEPNV;			// in Euro(€)
 	
+	/**In der Liste rechnungsstellerListe stehen alle Einträge der Tabelle Rechnungssteller.*/
 	protected static ArrayList<Rechnungssteller> rechnungsstellerListe = new ArrayList<Rechnungssteller>();
 
 	public Rechnungssteller(int rechnungsstellerID, String nachname, String vorname, String amtsbezeichnung,
@@ -179,6 +181,7 @@ public class Rechnungssteller {
 		return rechnungsstellerListe;
 	}
 
+	/**Speichert ein Element der Klasse Rechnungssteller in die Tabelle der Datenbank.*/
 	public void insertData() {
 		
 		Derby_Conn dc = new Derby_Conn();

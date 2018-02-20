@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+/**Klasse Dienstanschrift für die Tabelle der Datenbank*/
 public class Dienstanschrift {
 
 	private int dienstanschriftID;
@@ -15,6 +16,7 @@ public class Dienstanschrift {
 	private String stadt;
 	private int plz;
 	
+	/**In der Liste dienstanschriftListe stehen alle Einträge der Tabelle Dienstanschrift.*/
 	protected static ArrayList<Dienstanschrift> dienstanschriftListe = new ArrayList<Dienstanschrift>();
 
 	public Dienstanschrift(int dienstanschriftID, String organisation, String abteilung, String strasse, int hausnummer,
@@ -100,6 +102,7 @@ public class Dienstanschrift {
 		return dienstanschriftListe;
 	}
 
+	/**Speichert ein Element der Klasse Dienstanschrift in die Tabelle der Datenbank.*/
 	public void insertData() {
 		
 		Derby_Conn dc = new Derby_Conn();

@@ -1,7 +1,7 @@
 package db.models;
 
+/**Die Klasse Create_Data erstellt Beispieldaten für jede einzelne Tabelle der Dtaenbank*/
 public class Create_Data {
-	
 
 	public static void main(String[] args){
 		
@@ -157,6 +157,7 @@ public class Create_Data {
 		k5.insertData();
 	}
 	
+	/**Diese Methode gibt ein zufälliges Datum im Jahr 2017 zurueck.*/
 	@SuppressWarnings("deprecation")
 	public static java.sql.Date datum(){
 		java.sql.Date date = new java.sql.Date(117, (int)(Math.random() * 12), (int)(Math.random() * 32));

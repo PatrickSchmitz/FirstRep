@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+/**Klasse Antragsteller für die Tabelle der Datenbank*/
 public class Antragsteller {
 
 	private int antragstellerID;
@@ -12,6 +13,7 @@ public class Antragsteller {
 	private int dienstlicheDatenID;
 	private int beihilfereglungenID;
 	
+	/**In der Liste antragstellerListe stehen alle Einträge der Tabelle Antragsteller.*/
 	protected static ArrayList<Antragsteller> antragstellerListe = new ArrayList<Antragsteller>();
 	
 	public Antragsteller(int antragstellerID, int familienID, int dienstlicheDatenID, int beihilfereglungenID) {
@@ -65,6 +67,7 @@ public class Antragsteller {
 		return antragstellerListe;
 	}
 	
+	/**Speichert ein Element der Klasse Antragsteller in die Tabelle der Datenbank.*/
 	public void insertData() {
 		
 		Derby_Conn dc = new Derby_Conn();

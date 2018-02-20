@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+/**Alle SQL Befehle zum loeschen eines Eintrags der Tabellen.*/
 public class SQL_querys_delete {
 
 	public static void deleteFamilie(int familieID) {

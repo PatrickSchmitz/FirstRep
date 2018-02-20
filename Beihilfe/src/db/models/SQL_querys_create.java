@@ -1,5 +1,6 @@
 package db.models;
 
+/**Alle SQL Befehle zum erstellen der Tabellen.*/
 public class SQL_querys_create {
 	
 	private String createFamilie = ("CREATE TABLE Familie(" + 

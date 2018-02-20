@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+/**Klasse Familie für die Tabelle der Datenbank*/
 public class Familie {
 	
 	private int familienID;
@@ -17,7 +18,9 @@ public class Familie {
 	private String stadt;
 	private int plz;
 	/** Leider koennen die Telefonnummern nicht mit 0 beginnen, da dies der Typ Long nicht zulaesst.	 */
-	private long telefonnummer;			
+	private long telefonnummer;	
+	
+	/**In der Liste familienListe stehen alle Einträge der Tabelle Familie.*/
 	public static ArrayList<Familie> familienListe = new ArrayList<Familie>();
 	
 	public Familie(int familienID, String nachname, String vorname, String familienPos, float beihilfeprozentsatz, String strasse, int hausnummer,
@@ -132,6 +135,7 @@ public class Familie {
 		return familienListe;
 	}
 	
+	/**Speichert ein Element der Klasse Familie in die Tabelle der Datenbank.*/
 	public void insertData() {
 		
 		Derby_Conn dc = new Derby_Conn();

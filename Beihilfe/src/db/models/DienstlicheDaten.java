@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+/**Klasse DienstlicheDaten für die Tabelle Dienstdaten der Datenbank*/
 public class DienstlicheDaten {
 
 	private int dienstlicheDatenID;
@@ -13,6 +14,7 @@ public class DienstlicheDaten {
 	private String amtsbezeichnung;
 	private int verguetungsgruppe;
 	
+	/**In der Liste dienstlicheDatenListe stehen alle Einträge der Tabelle DienstlicheDaten.*/
 	protected static ArrayList<DienstlicheDaten> dienstlicheDatenListe = new ArrayList<DienstlicheDaten>();
 
 	public DienstlicheDaten(int dienstlicheDatenID, int dienstanschriftID, long kennziffer, String amtsbezeichnung,
@@ -88,6 +90,7 @@ public class DienstlicheDaten {
 		return dienstlicheDatenListe;
 	}
 	
+	/**Speichert ein Element der Klasse DienstlicheDaten in die Tabelle der Datenbank.*/
 	public void insertData() {
 		
 		Derby_Conn dc = new Derby_Conn();

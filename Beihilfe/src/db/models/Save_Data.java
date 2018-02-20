@@ -5,6 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+/**Methoden zum speichern aller Eintraege der Tabellen in die Listen 
+ * der dafuer vorgesehenen Klassen.*/
 public class Save_Data {
 
 	private static Connection conn = null;

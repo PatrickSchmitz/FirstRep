@@ -1,5 +1,7 @@
 package db.models;
 
+/**Erstellt oder Löscht die Datenbank. 
+ * Wird lediglich zum testen benötigt.*/
 public class Create_Derby_DB {
 	
 	public static void main(String[] args){

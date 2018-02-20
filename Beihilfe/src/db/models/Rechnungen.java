@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 
+/**Klasse Rechnungen für die Tabelle der Datenbank*/
 public class Rechnungen {
 
 	private int rechnungID;
@@ -23,6 +24,7 @@ public class Rechnungen {
 	 * und dem Heutigen Tag.*/
 	private long diffDays; 
 	
+	/**In der Liste rechnungenListe stehen alle Einträge der Tabelle Rechnungen.*/
 	protected static ArrayList<Rechnungen> rechnungenListe = new ArrayList<Rechnungen>();
 	 
 	public Rechnungen(int rechnungID, int familieID, int rechnungsstellerID, int kostenartenID, int rechnungsnummer,
@@ -181,7 +183,7 @@ public class Rechnungen {
 		return rechnungenListe;
 	}
 	
-	/**Speichert ein Element der Klasse Rechnung in der Datenbank.*/
+	/**Speichert ein Element der Klasse Rechnung in die Tabelle der Datenbank.*/
 	public void insertData() {
 		
 		Derby_Conn dc = new Derby_Conn();
